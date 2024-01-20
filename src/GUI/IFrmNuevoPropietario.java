@@ -19,9 +19,12 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
+import javax.swing.JDesktopPane;
 
 
 public class IFrmNuevoPropietario extends JInternalFrame{
+    
+    private JDesktopPane desktopPane;
     
     private JPanel contentPane;
     private JPanel pnlSur;
@@ -45,6 +48,8 @@ public class IFrmNuevoPropietario extends JInternalFrame{
     private JButton btnGuardar;
     private JButton btnNuevoRegistro;
     private JButton btnSalir;
+    //prueba 
+    private JButton btnCarro; 
     //Etiquetas
     private JLabel lblCedula;
     private JLabel lblNombre;
@@ -84,17 +89,33 @@ public class IFrmNuevoPropietario extends JInternalFrame{
     public IFrmNuevoPropietario(){
         
         initComponents();
+        addListener();
     
     }
     public IFrmNuevoPropietario(String titulo){
         super(titulo);
         initComponents();
+        addListener();
     }
+    
+     private void addListener(){
+      IFrmCarroListener listener = new IFrmCarroListener(this);
+      btnCarro.addActionListener(listener);
+      
+      
+     }
+    
+    
     
     public void initComponents(){
         setBounds(10, 10,500, 490);
         contentPane = new JPanel(new BorderLayout());
         setContentPane(contentPane);
+        
+        desktopPane = new JDesktopPane();
+        contentPane.add(desktopPane);
+        
+        
         pnlRegistroInformacion = new JPanel(new GridLayout(5,2));
                  pnlCedula = new JPanel();
                  pnlNombre = new JPanel();
@@ -182,6 +203,10 @@ public class IFrmNuevoPropietario extends JInternalFrame{
                                       pnlDireccionTrabajo.add(txtCalleTrabajo);
                                       pnlDireccionTrabajo.add(lblNumeroManzana);
                                       pnlDireccionTrabajo.add(txtNumeroManzana);
+                                       
+                                        
+                                      
+                                      
             
         pnlSur = new JPanel();
             contentPane.add(pnlSur, BorderLayout.SOUTH);
@@ -192,6 +217,18 @@ public class IFrmNuevoPropietario extends JInternalFrame{
         btnSalir = new JButton("Salir");
             pnlSur.add(btnSalir);
             
+          btnCarro = new JButton("Presiona carro");
+            pnlSur.add(btnCarro);
+            
+            
+          //XD quitar despues   
+          
+         
+    
+        
+        
+        
+            
         
          
          
@@ -200,6 +237,25 @@ public class IFrmNuevoPropietario extends JInternalFrame{
     
     
     }
+
+    public JButton getBtnGuardar() {
+        return btnGuardar;
+    }
+
+    public JButton getBtnNuevoRegistro() {
+        return btnNuevoRegistro;
+    }
+
+    public JButton getBtnSalir() {
+        return btnSalir;
+    }
+
+    public JButton getBtnCarro() {
+        return btnCarro;
+    }
+    
+    
+    
     
     
     

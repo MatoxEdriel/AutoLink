@@ -30,6 +30,15 @@ public class FrmPrincipalListener implements ActionListener{
             //Aqui 
               
          }
+         if(obj == frm.getMniSalir()){
+             System.exit(0);
+         }
+         
+         
+         
+         
+         
+         
          
          
          
