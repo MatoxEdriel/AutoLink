@@ -27,7 +27,7 @@ public class IFrmNuevoPropietarioListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
        Object obj = e.getSource();
        if(obj == Ifrm.getBtnCarro()){
-           IFrmCarro carro = new IFrmCarro("Carrito uwu ");
+           IFrmRegistroVehiculo carro = new IFrmRegistroVehiculo("Carrito uwu ");
            carro.setVisible(true);
            Ifrm.getDesktopPane().add(carro);
            Ifrm.setVisible(false);
