@@ -19,17 +19,12 @@ public class IFrmCarro extends JInternalFrame{
       
       public IFrmCarro(){
            initComponents();
-      
       }
       public IFrmCarro(String titulo){
         super(titulo);
         initComponents();
-   
       
       }
-      
-     
-      
       
      public void initComponents(){
         setBounds(10, 10,200, 200);

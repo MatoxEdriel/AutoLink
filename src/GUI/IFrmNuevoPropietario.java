@@ -99,7 +99,8 @@ public class IFrmNuevoPropietario extends JInternalFrame{
     }
     
      private void addListener(){
-      IFrmCarroListener listener = new IFrmCarroListener(this);
+      IFrmNuevoPropietarioListener listener = new IFrmNuevoPropietarioListener(this);
+      btnGuardar.addActionListener(listener);
       btnCarro.addActionListener(listener);
       
       
@@ -221,8 +222,7 @@ public class IFrmNuevoPropietario extends JInternalFrame{
             pnlSur.add(btnCarro);
             
             
-          //XD quitar despues   
-          
+         
          
     
         
@@ -252,6 +252,18 @@ public class IFrmNuevoPropietario extends JInternalFrame{
 
     public JButton getBtnCarro() {
         return btnCarro;
+    }
+
+    public JTextField getTxtCedula() {
+        return txtCedula;
+    }
+
+    public JTextField getTxtNombre() {
+        return txtNombre;
+    }
+
+    public JTextField getTxtApellido() {
+        return txtApellido;
     }
     
     
