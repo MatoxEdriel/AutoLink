@@ -26,12 +26,13 @@ public class IFrmNuevoPropietarioListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
        Object obj = e.getSource();
-       if(obj == Ifrm.getBtnCarro()){
-           IFrmRegistroVehiculo carro = new IFrmRegistroVehiculo("Carrito uwu ");
-           carro.setVisible(true);
-           Ifrm.getDesktopPane().add(carro);
-           Ifrm.setVisible(false);
-       }
+       //Prueba 
+//       if(obj == Ifrm.getBtnCarro()){
+//           IFrmRegistroVehiculo carro = new IFrmRegistroVehiculo("Carrito uwu ");
+//           carro.setVisible(true);
+//           Ifrm.getDesktopPane().add(carro);
+//           Ifrm.setVisible(false);
+//       }
        if(obj == Ifrm.getBtnSalir()){
            System.exit(0);
        }
@@ -57,6 +58,13 @@ public class IFrmNuevoPropietarioListener implements ActionListener {
            addClientes(cliente1);
            //funcion de nuevo() focus request  
            System.out.println("mostrando" + cliente1);
+           
+           
+           IFrmRegistroVehiculo carro = new IFrmRegistroVehiculo("Registro de Vehiculo");
+           carro.setVisible(true);
+           Ifrm.getDesktopPane().add(carro);
+           Ifrm.setVisible(false);
+           
            
            /*
                protected String numeroChasis;

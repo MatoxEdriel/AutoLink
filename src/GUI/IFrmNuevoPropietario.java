@@ -48,8 +48,7 @@ public class IFrmNuevoPropietario extends JInternalFrame{
     private JButton btnGuardar;
     private JButton btnNuevoRegistro;
     private JButton btnSalir;
-    //prueba 
-    private JButton btnCarro; 
+   
     //Etiquetas
     private JLabel lblCedula;
     private JLabel lblNombre;
@@ -101,7 +100,7 @@ public class IFrmNuevoPropietario extends JInternalFrame{
      private void addListener(){
       IFrmNuevoPropietarioListener listener = new IFrmNuevoPropietarioListener(this);
       btnGuardar.addActionListener(listener);
-      btnCarro.addActionListener(listener);
+     
       
       
      }
@@ -218,9 +217,7 @@ public class IFrmNuevoPropietario extends JInternalFrame{
         btnSalir = new JButton("Salir");
             pnlSur.add(btnSalir);
             
-          btnCarro = new JButton("Presiona carro");
-            pnlSur.add(btnCarro);
-            
+   
             
          
          
@@ -250,9 +247,7 @@ public class IFrmNuevoPropietario extends JInternalFrame{
         return btnSalir;
     }
 
-    public JButton getBtnCarro() {
-        return btnCarro;
-    }
+ 
 
     public JTextField getTxtCedula() {
         return txtCedula;
