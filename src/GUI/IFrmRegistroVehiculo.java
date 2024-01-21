@@ -10,10 +10,15 @@ import java.awt.GridLayout;
 //import javax.swing.Icon;
 //import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import modelo.Repositorio.Cambios;
+import modelo.Repositorio.TipoMoto;
+import modelo.Repositorio.numeroAsiento;
+import modelo.Repositorio.numeroPuertas;
 
 /**
  *
@@ -32,10 +37,21 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
       private JPanel pnlMoto;
       private JPanel pnllblMoto;
       private JPanel pnllblCarro;
+      private JPanel pnlNumeroAsiento;
+      private JPanel pnlNumeroPuertas;
+      private JPanel pnlCambios;
+      
+      private JPanel pnllblVehiculo;
+      
       private JPanel pnlChasis;
       private JPanel pnlMatricula;
       private JPanel pnlCilindraje;
-      //Label carro
+      private JPanel pnlTipoMoto;
+      private JPanel pnlMarca;
+      private JPanel pnlModelo;
+    
+      private JLabel lblVehiculo;
+      //Label Vehiculo
       private JLabel lblCarro;
       private JLabel lblNumeroChasis;
       private JTextField txtNumeroChasis;
@@ -43,16 +59,33 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
       private JTextField txtMatricula;
       private JLabel lblMarca;
       private JLabel lblModelo;
+      private JTextField txtMarca;
+      private JTextField txtModelo;
+      //Label carro
+      private JLabel lblNumeroAsiento;
+      private JLabel lblNumeroPuertas;
+      private JLabel lblCambios;
+      
+      private JComboBox<Cambios> cmbCambios;
+      
+      private JComboBox<numeroAsiento> cmbNumeroAsiento;
+      private JComboBox<numeroPuertas> cmbNumeroPuertas;
+  
+      
       
       //Label moto
       private JLabel lblMoto;
       private JLabel lblCilindraje;
       private JTextField txtCilindraje;
+      
       private JLabel lblTipo;
+      private JComboBox<TipoMoto> cmbTipoMoto;
       
       //prueba
       private JLabel lblSpace;
       private JLabel lblSpace2;
+      private JLabel lblSpace3;
+      
       
       
       
@@ -86,21 +119,21 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
         contentPane = new JPanel(new BorderLayout());
         setContentPane(contentPane);
           //Activar capacidad de modificar tama;o con mouse
-        setResizable(false);
+        setResizable(true);
         //Capacidad de minimizar ventana
         setIconifiable(true);
         //Opcion para cerrar ventana (x)
         setClosable(true);
         //capacidad de ventana para maximizar
-        setMaximizable(false); 
+        setMaximizable(true); 
         //Revisar gestion de desing 
-        pnlTop = new JPanel(new GridLayout(1,2));
-                 pnllblMoto = new JPanel(new BorderLayout());
-                 pnllblCarro = new JPanel(new BorderLayout());
+        pnlTop = new JPanel(new GridLayout(5,1));
+              //   pnllblMoto = new JPanel(new BorderLayout());
+                // pnllblCarro = new JPanel(new BorderLayout());
         pnlSur = new JPanel();
         pnlCentro = new JPanel(new GridLayout(1,2));
-            pnlCarro = new JPanel(new GridLayout(5,1));
-            pnlMoto = new JPanel(new GridLayout(5,1));
+            pnlCarro = new JPanel(new GridLayout(6,1));
+            pnlMoto = new JPanel(new GridLayout(6,1));
         //Carro 
         lblCarro = new JLabel("Carro");
         lblNumeroChasis = new JLabel(" Numero de chasis "); 
@@ -118,38 +151,97 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
         contentPane.add(pnlTop, BorderLayout.NORTH);
         contentPane.add(pnlSur, BorderLayout.SOUTH);
         contentPane.add(pnlCentro,BorderLayout.CENTER);
-        
-        pnlTop.add(pnllblCarro);
-        pnlTop.add(pnllblMoto);
-           
-                    pnllblCarro.add(lblCarro);
-                    pnllblMoto.add(lblMoto);
-           
-            pnlCentro.add(pnlCarro);
-                 pnlChasis = new JPanel();
-                 pnlCarro.add(pnlChasis);
+         pnlChasis = new JPanel(new GridLayout(1,2));
+         pnllblVehiculo = new JPanel();
+         pnlTop.add(pnllblVehiculo);
+         lblVehiculo = new JLabel("Datos de vehiculo");
+         pnllblVehiculo.add(lblVehiculo);
+         
+        pnlTop.add(pnlChasis);
                  txtNumeroChasis = new JTextField(10);
-                 pnlChasis.add(lblNumeroChasis);
-                 pnlChasis.add(txtNumeroChasis);
+           
+            pnlChasis.add(lblNumeroChasis);
+            pnlChasis.add(txtNumeroChasis);
+//        pnlTop.add(pnllblCarro);
+//        pnlTop.add(pnllblMoto);
+//           
+//                    pnllblCarro.add(lblCarro);
+//                    pnllblMoto.add(lblMoto);
+        pnlMatricula = new JPanel(new GridLayout(1,2));
+        pnlTop.add(pnlMatricula);
+            pnlMatricula.add(lblMatricula);
+                txtMatricula = new JTextField(10);
+                pnlMatricula.add(txtMatricula);
+           
+//           
+                pnlMarca = new JPanel(new GridLayout(1,2));
+        pnlTop.add(pnlMarca);
+                txtMarca = new JTextField(10);
+                pnlMarca.add(lblMarca);
+                pnlMarca.add(txtMarca);
+                
+                pnlModelo = new JPanel(new GridLayout(1,2));
+        pnlTop.add(pnlModelo);
+                txtModelo = new JTextField(10);
+                pnlModelo.add(lblModelo);
+                pnlModelo.add(txtModelo);
+
+                
+                
+                
+                
+            pnlCentro.add(pnlCarro);
+                 pnlNumeroAsiento= new JPanel();
+                 pnlCarro.add(lblCarro);
+                 pnlCarro.add(pnlNumeroAsiento);
+                 lblNumeroAsiento = new JLabel("Numero de asiento");
+                 pnlNumeroAsiento.add(lblNumeroAsiento);
                  
-                 pnlMatricula = new JPanel();
+                 JComboBox<numeroAsiento> cmbNumeroAsiento = new JComboBox<>(numeroAsiento.values());
+                                  pnlNumeroAsiento.add(cmbNumeroAsiento);
+                 
+                 pnlNumeroPuertas = new JPanel();
+                 pnlCarro.add(pnlNumeroPuertas);
+                 lblNumeroPuertas = new JLabel("Numero de puertas");
+                 pnlNumeroPuertas.add(lblNumeroPuertas);
+                 JComboBox<numeroPuertas> cmbNumeroPuertas = new JComboBox<>(numeroPuertas.values());
+                 pnlNumeroPuertas.add(cmbNumeroPuertas);
+                 //finish 
+                 pnlCambios = new JPanel();
+                 pnlCarro.add(pnlCambios);
+                 lblCambios = new JLabel("Cambios");
+                 pnlCambios.add(lblCambios);
+                 JComboBox<Cambios> cmbCambios = new JComboBox<>(Cambios.values());
+                 //Aqui ir comboBOX
+                 pnlCambios.add(cmbCambios);
+                 lblSpace3 = new JLabel("");
+                 
+                 pnlCarro.add(lblSpace3);
                  
                  
-                 pnlCarro.add(pnlMatricula);
-                 pnlMatricula.add(lblMatricula);
-                 txtMatricula = new JTextField(10);
-                 pnlMatricula.add(txtMatricula);
                  
-                 pnlCarro.add(lblMarca);
-                 pnlCarro.add(lblModelo);   
+                 
                  pnlCarro.add(btnRegistrarCarro);
+                 
+                 
+                 
             pnlCentro.add(pnlMoto);
+                
+            
+                 pnlMoto.add(lblMoto);
                  pnlCilindraje = new JPanel();
                  pnlMoto.add(pnlCilindraje);
                  pnlCilindraje.add(lblCilindraje);
                  txtCilindraje = new JTextField(10);
                  pnlCilindraje.add(txtCilindraje);
-                 pnlMoto.add(lblTipo);
+                 
+                 //Tipo
+                   pnlTipoMoto = new JPanel();
+                 pnlMoto.add(pnlTipoMoto);
+                 pnlTipoMoto.add(lblTipo);
+                  JComboBox<TipoMoto> cmbTipoMoto = new JComboBox<>(TipoMoto.values());
+                  pnlTipoMoto.add(cmbTipoMoto);
+                 
                  lblSpace = new JLabel("");
                  lblSpace2 = new JLabel("");
                  pnlMoto.add(lblSpace);

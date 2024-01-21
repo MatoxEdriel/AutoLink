@@ -21,6 +21,8 @@ import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
 
+import modelo.Repositorio.Ciudades;
+
 
 public class IFrmNuevoPropietario extends JInternalFrame{
     
@@ -185,7 +187,7 @@ public class IFrmNuevoPropietario extends JInternalFrame{
                     pnlRegistroInformacion.add(pnlDireccion);
                           pnlDireccion.add(lblCiudad);
                           //uso de combobox
-                             cmbCiudad = new JComboBox<>(new String[]{"---------","Guayaquil", "Quito", "Manabi", "Santa Elena"});
+                              JComboBox<Ciudades> cmbCiudad = new JComboBox<>(Ciudades.values());
                                   pnlDireccion.add(cmbCiudad);
                                        pnlDireccion.add(lblCalle);
                                        pnlDireccion.add(txtCalle);
@@ -197,7 +199,7 @@ public class IFrmNuevoPropietario extends JInternalFrame{
                 pnllblDireccionTrabajo.add(lblDireccionTrabajo);
                     pnlRegistroInformacion.add(pnlDireccionTrabajo);
                           pnlDireccionTrabajo.add(lblCiudadTrabajo);
-                          cmbCiudadTrabajo = new JComboBox<>(new String[]{"---------", "Quito", "Manabi", "Santa Elena"});
+                          JComboBox<Ciudades> cmbCiudadTrabajo = new JComboBox<>(Ciudades.values());
                                 pnlDireccionTrabajo.add(cmbCiudadTrabajo);
                                       pnlDireccionTrabajo.add(lblCalleTrabajo);
                                       pnlDireccionTrabajo.add(txtCalleTrabajo);
