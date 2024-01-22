@@ -14,6 +14,8 @@ import modelo.DireccionDomicilio;
 import modelo.DireccionLaboral;
 import modelo.Repositorio.Ciudades;
 import modelo.vehiculos;
+import javax.swing.JDialog;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -56,8 +58,9 @@ public class IFrmNuevoPropietarioListener implements ActionListener {
        
        
        }
-       
+    try{
        if(obj == Ifrm.getBtnGuardar()){
+           
            
            String cedula = Ifrm.getTxtCedula().getText();
            String nombre = Ifrm.getTxtNombre().getText();
@@ -110,18 +113,43 @@ public class IFrmNuevoPropietarioListener implements ActionListener {
 
        }
        
+        }catch(ArrayIndexOutOfBoundsException w){
+        nuevo();
+        
+        
+         SwingUtilities.invokeLater(new Runnable() {
+        @Override
+        public void run() {
+            IFrmNuevoPropietarioError errorDialog = new IFrmNuevoPropietarioError("¡Hubo un error! Por favor, verifica los datos ingresados.");
+            errorDialog.setVisible(true);
+        }
+    });
+        }
+       
     
     
     
     }
+    
+    
     
       public void addClientes(Cliente cliente1){
         if(lstClientes == null){
             lstClientes = new ArrayList<>();
         }
         lstClientes.add(cliente1);
-       
        }
+      public void nuevo(){
+      Ifrm.getTxtCedula().setText("");
+      Ifrm.getTxtNombre().setText("");
+      Ifrm.getTxtApellido().setText("");
+      Ifrm.getTxtCalle().setText("");
+      Ifrm.getTxtNumeroCasa().setText("");
+      Ifrm.getTxtCalleTrabajo().setText("");
+      Ifrm.getTxtNumeroManzana().setText("");
+      Ifrm.getTxtCedula().requestFocus();}
+      
+      
        
     
     
