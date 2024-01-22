@@ -257,6 +257,54 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
      
      
      }
+
+    public JTextField getTxtNumeroChasis() {
+        return txtNumeroChasis;
+    }
+
+    public JTextField getTxtMatricula() {
+        return txtMatricula;
+    }
+
+    public JTextField getTxtMarca() {
+        return txtMarca;
+    }
+
+    public JTextField getTxtModelo() {
+        return txtModelo;
+    }
+
+    public JComboBox<Cambios> getCmbCambios() {
+        return cmbCambios;
+    }
+
+    public JComboBox<numeroAsiento> getCmbNumeroAsiento() {
+        return cmbNumeroAsiento;
+    }
+
+    public JComboBox<numeroPuertas> getCmbNumeroPuertas() {
+        return cmbNumeroPuertas;
+    }
+
+    public JTextField getTxtCilindraje() {
+        return txtCilindraje;
+    }
+
+    public JComboBox<TipoMoto> getCmbTipoMoto() {
+        return cmbTipoMoto;
+    }
+
+    public JButton getBtnRegistrarCarro() {
+        return btnRegistrarCarro;
+    }
+
+    public JButton getBtnRegistrarMoto() {
+        return btnRegistrarMoto;
+    }
+
+    public JButton getBtnNoRegistrar() {
+        return btnNoRegistrar;
+    }
     
    
     

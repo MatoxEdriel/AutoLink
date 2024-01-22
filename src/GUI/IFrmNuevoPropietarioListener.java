@@ -21,10 +21,12 @@ import modelo.vehiculos;
  */
 public class IFrmNuevoPropietarioListener implements ActionListener {
     IFrmNuevoPropietario Ifrm;
+    //Esto provoca el error de addlistener, investigar, entender y corregir
     private List<Cliente> lstClientes;
     
     public IFrmNuevoPropietarioListener(IFrmNuevoPropietario Ifrm){
         this.Ifrm = Ifrm;
+       
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -66,22 +68,15 @@ public class IFrmNuevoPropietarioListener implements ActionListener {
            
            DireccionDomicilio direccionCasa = new DireccionDomicilio(domicilioCiudad,domicilioCalle,domicilioNumero);
            DireccionLaboral direccionTrabajo = new DireccionLaboral(CiudadTrabajo, CalleTrabajo, numeroTrabajo);
+           //Recuerda que estos datos no deben ser guardados aun solo el cliente
+           Cliente clientesinVehiculo = new Cliente(nombre,apellido,cedula, direccionCasa, direccionTrabajo);
+           //Creando informacion de vehiculo
            
            
-           
-           
-           
-           
-           vehiculos carro1 = new vehiculos("123BC", "1233","TOYOTA","chevrolet");
-            vehiculos carro2 = new vehiculos("123BC", "1233","TOYOTA","chevrolet");
-           listaDeVehiculos.add(carro1);
-           listaDeVehiculos.add(carro2);
-           Cliente cliente1 = new Cliente(nombre, apellido, cedula, listaDeVehiculos,
-                            direccionCasa,direccionTrabajo);
            serializacion.guardarLista(lstClientes);
-           addClientes(cliente1);
+           addClientes(clientesinVehiculo);
            //funcion de nuevo() focus request  
-           System.out.println("mostrando" + cliente1);
+           System.out.println(" Cliente sin vehiculo asignado " + clientesinVehiculo);
            
            
            IFrmRegistroVehiculo carro = new IFrmRegistroVehiculo("Registro de Vehiculo");

@@ -36,9 +36,22 @@ public class Cliente implements Serializable{
     //private DireccionTrabajo
     
   
-    public Cliente(){
+   
+    public Cliente( String nombre, String apellido,String cedula
+                    ,DireccionDomicilio oDireccionDomicilio,DireccionLaboral oDireccionLaboral) {
+        this.cedula = cedula;
+    
+       // lo hace el procedimiento  this.codigo = codigo;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        
+       
+        this.oDireccionDomicilio = oDireccionDomicilio;
+        this.oDireccionLaboral = oDireccionLaboral;
+        codigo();
     }
-    public Cliente( String nombre, String apellido,String cedula, List<vehiculos> ListaVehiculos
+    //SOBRECARGA DE CONSTRUCTORES 
+       public Cliente( String nombre, String apellido,String cedula, List<vehiculos> ListaVehiculos
                     ,DireccionDomicilio oDireccionDomicilio,DireccionLaboral oDireccionLaboral) {
         this.cedula = cedula;
     
@@ -51,6 +64,9 @@ public class Cliente implements Serializable{
         this.oDireccionLaboral = oDireccionLaboral;
         codigo();
     }
+    
+    
+    
     //Puedo guardar directamente al atributo
     private void codigo(){
                 //Convierto el string en un array 
