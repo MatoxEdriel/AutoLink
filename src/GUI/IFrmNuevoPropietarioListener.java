@@ -105,9 +105,9 @@ public class IFrmNuevoPropietarioListener implements ActionListener {
            Ifrm.getDesktopPane().add(carro);
            Ifrm.setVisible(false);
            Cliente clientesinVehiculo = new Cliente(nombre,apellido,cedula, direccionCasa, direccionTrabajo);
+         
            
-           
-       
+           System.out.println("OJITO" + clientesinVehiculo);
            
            //SERIA DESPUES 
            

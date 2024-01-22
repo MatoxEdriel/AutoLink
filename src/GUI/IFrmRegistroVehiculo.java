@@ -119,6 +119,8 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
       private void addListeners(){
       IFrmRegistroVehiculoListener listener = new IFrmRegistroVehiculoListener(this);
       btnRegistrarCarro.addActionListener(listener);
+      btnNoRegistrar.addActionListener(listener);
+      btnRegistrarMoto.addActionListener(listener);
       
       
       }
@@ -248,7 +250,7 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
                    pnlTipoMoto = new JPanel();
                  pnlMoto.add(pnlTipoMoto);
                  pnlTipoMoto.add(lblTipo);
-                  JComboBox<TipoMoto> cmbTipoMoto = new JComboBox<>(TipoMoto.values());
+                       cmbTipoMoto = new JComboBox<>(TipoMoto.values());
                   pnlTipoMoto.add(cmbTipoMoto);
                  
                  lblSpace = new JLabel("");

@@ -18,6 +18,7 @@ import modelo.Repositorio.numeroPuertas;
 import modelo.Automovil;
 import modelo.vehiculos;
 import modelo.Moto;
+import modelo.Repositorio.TipoMoto;
 
 
 
@@ -53,10 +54,11 @@ public class IFrmRegistroVehiculoListener implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        
         Object obj = e.getSource();
         //Botones
         if (obj == IFrameRegistro.getBtnNoRegistrar()){
-            System.exit(0);
+           IFrameRegistro.dispose();
         }
         if (obj == IFrameRegistro.getBtnRegistrarCarro()){
           String numeroChasis = IFrameRegistro.getTxtNumeroChasis().getText();
@@ -112,6 +114,7 @@ if (cliente != null) {
 //    
 //    System.out.println("mostrando CLIENTE FINAL " + elementos);
 //}
+
     Cliente primerCliente = cliente.get(0);
     
     primerCliente.setListaVehiculos(lstVehiculos);
@@ -135,10 +138,30 @@ if (cliente != null) {
         
        
         if(obj == IFrameRegistro.getBtnRegistrarMoto()){
-          String numeroChasis = IFrameRegistro.getTxtNumeroChasis().getText();
-          String matricula = IFrameRegistro.getTxtMatricula().getText();
-          String marca = IFrameRegistro.getTxtMarca().getText();
-          String modelo = IFrameRegistro.getTxtModelo().getText();
+          String numeroChasisM = IFrameRegistro.getTxtNumeroChasis().getText();
+          String matriculaM = IFrameRegistro.getTxtMatricula().getText();
+          String marcaM = IFrameRegistro.getTxtMarca().getText();
+          String modeloM = IFrameRegistro.getTxtModelo().getText();
+          String cilindrajeM = IFrameRegistro.getTxtCilindraje().getText();
+          
+          TipoMoto tipoMoto = (TipoMoto)IFrameRegistro.getCmbTipoMoto().getSelectedItem();
+          Moto moto1 = new Moto(cilindrajeM,tipoMoto,numeroChasisM,matriculaM,marcaM,modeloM);
+          
+          addVehiculos(moto1);
+          
+          
+          serializacion.guardarListaVehiculos(lstVehiculos);
+          
+        
+           List<vehiculos> lista = leerLista();
+           List<Cliente> cliente = leerListaCliente();
+           
+         Cliente SegundoCliente = cliente.get(0);
+    
+          SegundoCliente.setListaVehiculos(lstVehiculos);
+         System.out.println("primer cliente + " + SegundoCliente);
+                  
+                 
         
         
         
@@ -168,4 +191,17 @@ if (cliente != null) {
        }
        //PROTOTIPO 3
     
+          public void nuevo(){
+      IFrameRegistro.getTxtNumeroChasis().setText("");
+      IFrameRegistro.getTxtMatricula().setText("");
+      IFrameRegistro.getTxtMarca().setText("");
+      IFrameRegistro.getTxtModelo().setText("");
+      
+      IFrameRegistro.getTxtCilindraje().setText("");
+      
+      IFrameRegistro.getTxtNumeroChasis().requestFocus();
+      }
+       //BORRAR DATOS DEPUES DE INGRESAR 
+       
+       
 }
