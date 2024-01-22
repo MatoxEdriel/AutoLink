@@ -10,6 +10,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.Cliente;
+import modelo.DireccionDomicilio;
+import modelo.DireccionLaboral;
+import modelo.Repositorio.Ciudades;
 import modelo.vehiculos;
 
 /**
@@ -49,11 +52,32 @@ public class IFrmNuevoPropietarioListener implements ActionListener {
            String apellido = Ifrm.getTxtApellido().getText();
            //Aqui tendria que enviarle datos de vehiculos directamente 
            List<vehiculos> listaDeVehiculos = new ArrayList<>(); 
+           //Aqui hago un casting
+           //Debido que es un combo box o sea tipo enum ese dato se debe castear a String 
+           Ciudades domicilioCiudad = (Ciudades) Ifrm.getCmbCiudad().getSelectedItem();
+           String domicilioCalle = Ifrm.getTxtCalle().getText();
+           String domicilioNumero = Ifrm.getTxtNumeroCasa().getText();
+           
+           Ciudades CiudadTrabajo = (Ciudades)Ifrm.getCmbCiudadTrabajo().getSelectedItem();
+           String CalleTrabajo = Ifrm.getTxtCalleTrabajo().getText();
+           String numeroTrabajo = Ifrm.getTxtNumeroManzana().getText();
+           //TENEMOS QUE HACER QUE ESTAS LISTA SE DESPLIEGUE SI ES POSIBLE APLICAR UN FOR 
+           //necesito que se ampliee
+           
+           DireccionDomicilio direccionCasa = new DireccionDomicilio(domicilioCiudad,domicilioCalle,domicilioNumero);
+           DireccionLaboral direccionTrabajo = new DireccionLaboral(CiudadTrabajo, CalleTrabajo, numeroTrabajo);
+           
+           
+           
+           
+           
+           
            vehiculos carro1 = new vehiculos("123BC", "1233","TOYOTA","chevrolet");
             vehiculos carro2 = new vehiculos("123BC", "1233","TOYOTA","chevrolet");
            listaDeVehiculos.add(carro1);
            listaDeVehiculos.add(carro2);
-           Cliente cliente1 = new Cliente(nombre, apellido, cedula, listaDeVehiculos);
+           Cliente cliente1 = new Cliente(nombre, apellido, cedula, listaDeVehiculos,
+                            direccionCasa,direccionTrabajo);
            serializacion.guardarLista(lstClientes);
            addClientes(cliente1);
            //funcion de nuevo() focus request  

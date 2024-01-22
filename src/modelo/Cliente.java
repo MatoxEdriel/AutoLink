@@ -25,21 +25,31 @@ public class Cliente implements Serializable{
     private String cedula;
     private List<vehiculos> ListaVehiculos;
     
+    
+    
+    private DireccionDomicilio oDireccionDomicilio;
+    private DireccionLaboral oDireccionLaboral;
+    
     private String codigo;
+    
     //private DireccionDomicilio
     //private DireccionTrabajo
     
   
     public Cliente(){
     }
-    public Cliente( String nombre, String apellido,String cedula, List<vehiculos> ListaVehiculos) {
+    public Cliente( String nombre, String apellido,String cedula, List<vehiculos> ListaVehiculos
+                    ,DireccionDomicilio oDireccionDomicilio,DireccionLaboral oDireccionLaboral) {
         this.cedula = cedula;
     
        // lo hace el procedimiento  this.codigo = codigo;
         this.nombre = nombre;
         this.apellido = apellido;
-        codigo();
+        
         this.ListaVehiculos = new ArrayList<>(ListaVehiculos);
+        this.oDireccionDomicilio = oDireccionDomicilio;
+        this.oDireccionLaboral = oDireccionLaboral;
+        codigo();
     }
     //Puedo guardar directamente al atributo
     private void codigo(){
@@ -95,8 +105,11 @@ tiene uno
 
     @Override
     public String toString() {
-        return "Cliente{" + "nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", ListaVehiculos=" + ListaVehiculos + ", codigo=" + codigo + '}';
+        return "Cliente{" + "nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", ListaVehiculos=" + ListaVehiculos + ", oDireccionDomicilio=" + oDireccionDomicilio + ", oDireccionLaboral=" + oDireccionLaboral + ", codigo=" + codigo + '}';
     }
+
+ 
+   
     
     
     

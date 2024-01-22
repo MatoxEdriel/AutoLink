@@ -79,8 +79,8 @@ public class IFrmNuevoPropietario extends JInternalFrame{
     private JTextField txtCalleTrabajo;
     private JTextField txtNumeroManzana;
     //txt Direccion 
-    private JComboBox<String> cmbCiudad;
-    private JComboBox<String> cmbCiudadTrabajo;
+    private JComboBox<Ciudades> cmbCiudad;
+    private JComboBox<Ciudades> cmbCiudadTrabajo;
     
  
     
@@ -187,7 +187,7 @@ public class IFrmNuevoPropietario extends JInternalFrame{
                     pnlRegistroInformacion.add(pnlDireccion);
                           pnlDireccion.add(lblCiudad);
                           //uso de combobox
-                              JComboBox<Ciudades> cmbCiudad = new JComboBox<>(Ciudades.values());
+                             cmbCiudad = new JComboBox<>(Ciudades.values());
                                   pnlDireccion.add(cmbCiudad);
                                        pnlDireccion.add(lblCalle);
                                        pnlDireccion.add(txtCalle);
@@ -199,7 +199,7 @@ public class IFrmNuevoPropietario extends JInternalFrame{
                 pnllblDireccionTrabajo.add(lblDireccionTrabajo);
                     pnlRegistroInformacion.add(pnlDireccionTrabajo);
                           pnlDireccionTrabajo.add(lblCiudadTrabajo);
-                          JComboBox<Ciudades> cmbCiudadTrabajo = new JComboBox<>(Ciudades.values());
+                            cmbCiudadTrabajo = new JComboBox<>(Ciudades.values());
                                 pnlDireccionTrabajo.add(cmbCiudadTrabajo);
                                       pnlDireccionTrabajo.add(lblCalleTrabajo);
                                       pnlDireccionTrabajo.add(txtCalleTrabajo);
@@ -218,6 +218,9 @@ public class IFrmNuevoPropietario extends JInternalFrame{
             pnlSur.add(btnNuevoRegistro);
         btnSalir = new JButton("Salir");
             pnlSur.add(btnSalir);
+         
+            
+            
             
    
             
@@ -262,6 +265,35 @@ public class IFrmNuevoPropietario extends JInternalFrame{
     public JTextField getTxtApellido() {
         return txtApellido;
     }
+    
+    //Direccion 
+
+    public JTextField getTxtCalle() {
+        return txtCalle;
+    }
+
+    public JTextField getTxtNumeroCasa() {
+        return txtNumeroCasa;
+    }
+
+    public JTextField getTxtCalleTrabajo() {
+        return txtCalleTrabajo;
+    }
+
+    public JTextField getTxtNumeroManzana() {
+        return txtNumeroManzana;
+    }
+    
+    //////AQUII
+
+    public JComboBox<Ciudades> getCmbCiudad() {
+        return cmbCiudad;
+    }
+
+    public JComboBox<Ciudades> getCmbCiudadTrabajo() {
+        return cmbCiudadTrabajo;
+    }
+    
     
     
     
