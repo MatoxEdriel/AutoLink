@@ -4,11 +4,13 @@
  */
 package modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Matox
  */
-public class vehiculos {
+public class vehiculos implements Serializable {
    
     protected String numeroChasis;
     protected String matricula;

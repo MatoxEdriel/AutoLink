@@ -88,7 +88,7 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
       
       
       
-      
+ 
       
       
       private JButton btnRegistrarCarro;
@@ -100,10 +100,12 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
       
       public IFrmRegistroVehiculo(){
            initComponents();
+           addListeners();
       }
       public IFrmRegistroVehiculo(String titulo){
         super(titulo);
         initComponents();
+        addListeners();
       
       }
 //      private void SetImageLabel(JLabel labelName, String root){
@@ -113,6 +115,13 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
 //      
 //     
 //      }
+      
+      private void addListeners(){
+      IFrmRegistroVehiculoListener listener = new IFrmRegistroVehiculoListener(this);
+      btnRegistrarCarro.addActionListener(listener);
+      
+      
+      }
       
      public void initComponents(){
         setBounds(160, 50,270, 500);
@@ -197,21 +206,21 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
                  lblNumeroAsiento = new JLabel("Numero de asiento");
                  pnlNumeroAsiento.add(lblNumeroAsiento);
                  
-                 JComboBox<numeroAsiento> cmbNumeroAsiento = new JComboBox<>(numeroAsiento.values());
+                         cmbNumeroAsiento = new JComboBox<>(numeroAsiento.values());
                                   pnlNumeroAsiento.add(cmbNumeroAsiento);
                  
                  pnlNumeroPuertas = new JPanel();
                  pnlCarro.add(pnlNumeroPuertas);
                  lblNumeroPuertas = new JLabel("Numero de puertas");
                  pnlNumeroPuertas.add(lblNumeroPuertas);
-                 JComboBox<numeroPuertas> cmbNumeroPuertas = new JComboBox<>(numeroPuertas.values());
+                         cmbNumeroPuertas = new JComboBox<>(numeroPuertas.values());
                  pnlNumeroPuertas.add(cmbNumeroPuertas);
                  //finish 
                  pnlCambios = new JPanel();
                  pnlCarro.add(pnlCambios);
                  lblCambios = new JLabel("Cambios");
                  pnlCambios.add(lblCambios);
-                 JComboBox<Cambios> cmbCambios = new JComboBox<>(Cambios.values());
+                         cmbCambios = new JComboBox<>(Cambios.values());
                  //Aqui ir comboBOX
                  pnlCambios.add(cmbCambios);
                  lblSpace3 = new JLabel("");

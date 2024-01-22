@@ -4,10 +4,24 @@
  */
 package GUI;
 
+import IO.serializacion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
+import modelo.Cliente;
+import modelo.Repositorio.Cambios;
+import modelo.Repositorio.numeroAsiento;
+import modelo.Repositorio.numeroPuertas;
+import modelo.Automovil;
 import modelo.vehiculos;
+import modelo.Moto;
+
+
+
+
+
+
 
 /**
  *
@@ -21,6 +35,7 @@ public class IFrmRegistroVehiculoListener implements ActionListener{
    
     public IFrmRegistroVehiculoListener(IFrmRegistroVehiculo IFrameRegistro) {
         this.IFrameRegistro = IFrameRegistro;
+      
     }
     
     
@@ -41,9 +56,28 @@ public class IFrmRegistroVehiculoListener implements ActionListener{
           String matricula = IFrameRegistro.getTxtMatricula().getText();
           String marca = IFrameRegistro.getTxtMarca().getText();
           String modelo = IFrameRegistro.getTxtModelo().getText();
-          vehiculos vehiculo1 = new vehiculos(numeroChasis,matricula,marca,modelo);
-          lstVehiculos.add(vehiculo1);
-        
+          numeroAsiento cantidadAsiento = (numeroAsiento)IFrameRegistro.getCmbNumeroAsiento().getSelectedItem();
+          numeroPuertas cantidadPuertas = (numeroPuertas)IFrameRegistro.getCmbNumeroPuertas().getSelectedItem();
+          Cambios cambios = (Cambios)IFrameRegistro.getCmbCambios().getSelectedItem();
+          //Quizas llame el mismo cliente 
+          //pero es necesario hacerlo? 
+          Automovil carro1 = new Automovil(cantidadAsiento,cantidadPuertas,cambios, numeroChasis,matricula,marca, modelo);
+          //uiso la serializacion para guardar en la lista
+          //Puedo pasar esto en una lista al atributo de la clase ? 
+          addVehiculos(carro1);
+         // serializacion.guardarListaVehiculos(lstVehiculos);
+          
+          //Cliente ClientePrueba1 = new Cliente();
+          
+          
+          //Aqui uso la lista mmmm es necesario serializarlo? de todos modos ya 
+          //debe estar mmmm 
+          
+            System.out.println("SE CREO ");
+           
+          
+          
+          
         }
         if(obj == IFrameRegistro.getBtnRegistrarMoto()){
           String numeroChasis = IFrameRegistro.getTxtNumeroChasis().getText();
@@ -56,12 +90,33 @@ public class IFrmRegistroVehiculoListener implements ActionListener{
         
         }
         
+     
+        
         //
         
         
         
         
     }
+       private void addVehiculos(vehiculos v){
+            if(lstVehiculos == null){
+            
+                lstVehiculos = new ArrayList<>();
+            }
+            
+            lstVehiculos.add(v);
+        
+        
+        }
+       
+        public List<vehiculos> getListaDeVehiculos() {
+        return lstVehiculos;
+    }
+       
+       //PROTOTIPO 3
+    
+      
+    
     
     
     

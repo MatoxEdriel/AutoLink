@@ -21,15 +21,25 @@ import modelo.vehiculos;
  */
 public class IFrmNuevoPropietarioListener implements ActionListener {
     IFrmNuevoPropietario Ifrm;
+    IFrmRegistroVehiculoListener frm;
+    
+    
     //Esto provoca el error de addlistener, investigar, entender y corregir
     private List<Cliente> lstClientes;
+    private List<vehiculos> lstVehiculos;
     
     public IFrmNuevoPropietarioListener(IFrmNuevoPropietario Ifrm){
         this.Ifrm = Ifrm;
        
     }
+      
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
+        //PRUEBA 5 
+    
+     //
        Object obj = e.getSource();
        //Prueba 
 //       if(obj == Ifrm.getBtnCarro()){
@@ -69,10 +79,12 @@ public class IFrmNuevoPropietarioListener implements ActionListener {
            DireccionDomicilio direccionCasa = new DireccionDomicilio(domicilioCiudad,domicilioCalle,domicilioNumero);
            DireccionLaboral direccionTrabajo = new DireccionLaboral(CiudadTrabajo, CalleTrabajo, numeroTrabajo);
            //Recuerda que estos datos no deben ser guardados aun solo el cliente
+           
+            //Prototipo CON CARRO 
            Cliente clientesinVehiculo = new Cliente(nombre,apellido,cedula, direccionCasa, direccionTrabajo);
            //Creando informacion de vehiculo
-           
-           
+           //--Quitar lista si no funciona 
+         
            serializacion.guardarLista(lstClientes);
            addClientes(clientesinVehiculo);
            //funcion de nuevo() focus request  
@@ -80,10 +92,12 @@ public class IFrmNuevoPropietarioListener implements ActionListener {
            
            
            IFrmRegistroVehiculo carro = new IFrmRegistroVehiculo("Registro de Vehiculo");
+           
            carro.setVisible(true);
            Ifrm.getDesktopPane().add(carro);
            Ifrm.setVisible(false);
            
+      
            
            /*
                protected String numeroChasis;
@@ -95,6 +109,7 @@ public class IFrmNuevoPropietarioListener implements ActionListener {
         //Datos HIPOTETICO
 
        }
+       
     
     
     
