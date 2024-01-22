@@ -5,6 +5,8 @@
 package GUI;
 
 import IO.serializacion;
+import static IO.serializacion.leerLista;
+import static IO.serializacion.leerListaCliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -23,15 +25,20 @@ import javax.swing.SwingUtilities;
  */
 public class IFrmNuevoPropietarioListener implements ActionListener {
     IFrmNuevoPropietario Ifrm;
-    IFrmRegistroVehiculoListener frm;
+   
+    
+    
+   
     
     
     //Esto provoca el error de addlistener, investigar, entender y corregir
     private List<Cliente> lstClientes;
     private List<vehiculos> lstVehiculos;
+   
     
-    public IFrmNuevoPropietarioListener(IFrmNuevoPropietario Ifrm){
+    public IFrmNuevoPropietarioListener(IFrmNuevoPropietario Ifrm ){
         this.Ifrm = Ifrm;
+      
        
     }
       
@@ -84,14 +91,12 @@ public class IFrmNuevoPropietarioListener implements ActionListener {
            //Recuerda que estos datos no deben ser guardados aun solo el cliente
            
             //Prototipo CON CARRO 
-           Cliente clientesinVehiculo = new Cliente(nombre,apellido,cedula, direccionCasa, direccionTrabajo);
+           //Cliente clientesinVehiculo = new Cliente(nombre,apellido,cedula, direccionCasa, direccionTrabajo);
            //Creando informacion de vehiculo
            //--Quitar lista si no funciona 
          
-           serializacion.guardarLista(lstClientes);
-           addClientes(clientesinVehiculo);
-           //funcion de nuevo() focus request  
-           System.out.println(" Cliente sin vehiculo asignado " + clientesinVehiculo);
+        
+           
            
            
            IFrmRegistroVehiculo carro = new IFrmRegistroVehiculo("Registro de Vehiculo");
@@ -99,9 +104,36 @@ public class IFrmNuevoPropietarioListener implements ActionListener {
            carro.setVisible(true);
            Ifrm.getDesktopPane().add(carro);
            Ifrm.setVisible(false);
+           Cliente clientesinVehiculo = new Cliente(nombre,apellido,cedula, direccionCasa, direccionTrabajo);
            
-      
            
+       
+           
+           //SERIA DESPUES 
+           
+         
+        
+           
+           
+         
+                
+           //funcion de nuevo() focus request  
+          // System.out.println(" Cliente sin vehiculo asignado " + clientesinVehiculo);
+           
+//           if(carro.isVisible()==true){
+//                 lstVehiculos = leerLista();
+//                     clientesinVehiculo.setListaVehiculos(lstVehiculos);
+//                     System.out.println("otro tipo " + clientesinVehiculo);
+//           
+//                
+//                     
+//           }   
+           
+           addClientes(clientesinVehiculo);
+           
+           serializacion.guardarLista(lstClientes);
+           
+        
            /*
                protected String numeroChasis;
     protected String matricula;
@@ -149,11 +181,5 @@ public class IFrmNuevoPropietarioListener implements ActionListener {
       Ifrm.getTxtNumeroManzana().setText("");
       Ifrm.getTxtCedula().requestFocus();}
       
-      
-       
-    
-    
-    
-    
-    
+  
 }

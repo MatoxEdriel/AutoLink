@@ -4,13 +4,14 @@
  */
 package modelo;
 
+import java.io.Serializable;
 import modelo.Repositorio.Ciudades;
 
 /**
  *
  * @author Matox
  */
-public class DireccionDomicilio {
+public class DireccionDomicilio implements Serializable {
     private Ciudades ciudad;
     private String calle;
     private String numero;

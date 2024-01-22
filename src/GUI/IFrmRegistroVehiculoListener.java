@@ -5,6 +5,8 @@
 package GUI;
 
 import IO.serializacion;
+import static IO.serializacion.leerLista;
+import static IO.serializacion.leerListaCliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -29,6 +31,8 @@ import modelo.Moto;
  */
 public class IFrmRegistroVehiculoListener implements ActionListener{
     IFrmRegistroVehiculo IFrameRegistro;
+
+ 
     private List<vehiculos> lstVehiculos;
     
 
@@ -37,6 +41,9 @@ public class IFrmRegistroVehiculoListener implements ActionListener{
         this.IFrameRegistro = IFrameRegistro;
       
     }
+    
+   
+    
     
     
     
@@ -73,19 +80,66 @@ public class IFrmRegistroVehiculoListener implements ActionListener{
           //Aqui uso la lista mmmm es necesario serializarlo? de todos modos ya 
           //debe estar mmmm 
           
-            System.out.println("SE CREO ");
-           
+         
+            serializacion.guardarListaVehiculos(lstVehiculos);
+            
+          
+         //   List<vehiculos> listaVehiculo = serializacion.leerLista();
+           // List<Cliente> listaCliente = serializacion.leerListaCliente();
+            
+       
+         List<vehiculos> lista = leerLista();
+List<Cliente> cliente = leerListaCliente();
+
+if (lista != null) {
+    lstVehiculos = lista;
+} else {
+    System.out.println("FALLO AQUI");
+}
+
+if (cliente != null) {
+    // No inicialices nuevamente la lista, ya la has obtenido de leerListaCliente()
+    // cliente = leerListaCliente();
+} else {
+    System.out.println("FALLO AQUI cliente");
+}
+
+//List<Object> clientefinal = new ArrayList<>();
+//clientefinal.addAll(lista);
+//clientefinal.addAll(cliente);
+
+//for (Object elementos : clientefinal) {
+//    
+//    System.out.println("mostrando CLIENTE FINAL " + elementos);
+//}
+    Cliente primerCliente = cliente.get(0);
+    
+    primerCliente.setListaVehiculos(lstVehiculos);
+    
+
+            System.out.println("primer cliente + " + primerCliente);
+    
+    
+    
+         
+            
+          
+            
+            
+            
+            
           
           
           
         }
+        
+       
         if(obj == IFrameRegistro.getBtnRegistrarMoto()){
           String numeroChasis = IFrameRegistro.getTxtNumeroChasis().getText();
           String matricula = IFrameRegistro.getTxtMatricula().getText();
           String marca = IFrameRegistro.getTxtMarca().getText();
           String modelo = IFrameRegistro.getTxtModelo().getText();
-          vehiculos vehiculo1 = new vehiculos(numeroChasis,matricula,marca,modelo);
-          lstVehiculos.add(vehiculo1);
+        
         
         
         }
@@ -109,15 +163,9 @@ public class IFrmRegistroVehiculoListener implements ActionListener{
         
         }
        
-        public List<vehiculos> getListaDeVehiculos() {
-        return lstVehiculos;
-    }
-       
+       public List<vehiculos> getListaVehiculos(){
+           return lstVehiculos;
+       }
        //PROTOTIPO 3
-    
-      
-    
-    
-    
     
 }

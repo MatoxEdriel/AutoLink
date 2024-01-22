@@ -64,6 +64,10 @@ public class Cliente implements Serializable{
         this.oDireccionLaboral = oDireccionLaboral;
         codigo();
     }
+
+    public Cliente() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
     
@@ -122,6 +126,10 @@ tiene uno
     @Override
     public String toString() {
         return "Cliente{" + "nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", ListaVehiculos=" + ListaVehiculos + ", oDireccionDomicilio=" + oDireccionDomicilio + ", oDireccionLaboral=" + oDireccionLaboral + ", codigo=" + codigo + '}';
+    }
+
+    public void setListaVehiculos(List<vehiculos> ListaVehiculos) {
+        this.ListaVehiculos = ListaVehiculos;
     }
 
  

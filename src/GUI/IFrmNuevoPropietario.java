@@ -13,6 +13,7 @@ import javax.swing.JInternalFrame;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.FlowLayout;
+import java.util.List;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -22,6 +23,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
 
 import modelo.Repositorio.Ciudades;
+import modelo.vehiculos;
 
 
 public class IFrmNuevoPropietario extends JInternalFrame{
@@ -83,7 +85,7 @@ public class IFrmNuevoPropietario extends JInternalFrame{
     private JComboBox<Ciudades> cmbCiudadTrabajo;
     
  
-    
+    private List<vehiculos> lstVehiculos;
     
 
     
@@ -100,8 +102,10 @@ public class IFrmNuevoPropietario extends JInternalFrame{
     }
     
      private void addListener(){
+         //POSIBLMENTE CAMBIAR
       IFrmNuevoPropietarioListener listener = new IFrmNuevoPropietarioListener(this);
       btnGuardar.addActionListener(listener);
+      
      
       
       

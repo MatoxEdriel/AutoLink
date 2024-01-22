@@ -4,11 +4,13 @@
  */
 package modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Matox
  */
-public class Moto extends vehiculos {
+public class Moto extends vehiculos implements Serializable {
     private String cilindraje;
     //Posible num
     private String tipo;
