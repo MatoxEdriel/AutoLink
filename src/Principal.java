@@ -1,12 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 /**
- *
- * @author Matox
- */
+*Funcion principal 
+* Proyecto Automoviliaria
+*
+* Creado el 17 de Enero, 2024, 13:00;
+*
+* @author Gabriel Campoverde, Roberto Mera 
+*
+* @version POO - 2022
+*
+*/
+
 
 import GUI.FrmPrincipal;
 public class Principal {

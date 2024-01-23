@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package GUI;
-
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,16 +12,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- *
- * @author Matox
- */
+* (Aviso de try catch )
+*
+* @param parametro1 (descripci´on del parametro1 - sin par´entesis)
+* @param parametro2 (descripci´on del parametro2 - sin par´entesis)
+*/
+
+
 public class IFrmNuevoPropietarioError extends JDialog {
     private JPanel panel;
     private JLabel label;
     private JButton closeButton;
-    
-    
-    
     public IFrmNuevoPropietarioError(String errorMessage){
         setTitle("OJITO ");
         setSize(100,100);

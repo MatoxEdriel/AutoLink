@@ -25,6 +25,36 @@ public class DireccionDomicilio implements Serializable {
         this.numero = numero;
     }
 
+    public Ciudades getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(Ciudades ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getCalle() {
+        return calle;
+    }
+
+    public void setCalle(String calle) {
+        this.calle = calle;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    
+    
+    
+    
+    
+    
     @Override
     public String toString() {
         return "DireccionDomicilio{" + "ciudad=" + ciudad + ", calle=" + calle + ", numero=" + numero + '}';

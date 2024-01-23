@@ -23,10 +23,15 @@ public class Cliente implements Serializable{
     private String nombre;
     private String apellido;
     private String cedula;
+    private String codigo;
     private List<vehiculos> ListaVehiculos;
+    
+    
+    
     private DireccionDomicilio oDireccionDomicilio;
     private DireccionLaboral oDireccionLaboral;
-    private String codigo;
+    
+    
     
     //private DireccionDomicilio
     //private DireccionTrabajo
@@ -119,6 +124,60 @@ tiene uno
     -Pero primero cargar los datos, seria mas limpio 
     */
 
+    public List<vehiculos> getListaVehiculos() {
+        return ListaVehiculos;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public DireccionDomicilio getoDireccionDomicilio() {
+        return oDireccionDomicilio;
+    }
+
+    public void setoDireccionDomicilio(DireccionDomicilio oDireccionDomicilio) {
+        this.oDireccionDomicilio = oDireccionDomicilio;
+    }
+
+    public DireccionLaboral getoDireccionLaboral() {
+        return oDireccionLaboral;
+    }
+
+    public void setoDireccionLaboral(DireccionLaboral oDireccionLaboral) {
+        this.oDireccionLaboral = oDireccionLaboral;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    
+    
     @Override
     public String toString() {
         return "Cliente{" + "nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", ListaVehiculos=" + ListaVehiculos + ", oDireccionDomicilio=" + oDireccionDomicilio + ", oDireccionLaboral=" + oDireccionLaboral + ", codigo=" + codigo + '}';

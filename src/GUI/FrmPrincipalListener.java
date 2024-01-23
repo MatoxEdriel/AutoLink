@@ -34,6 +34,13 @@ public class FrmPrincipalListener implements ActionListener{
              System.exit(0);
          }
          
+         if(obj == frm.getMniRevisar()){
+            IFrmListadoCliente ifrm = new IFrmListadoCliente("tabla perrro");
+            ifrm.setVisible(true);  
+            frm.getDesktopPane().add(ifrm);
+            
+         }
+         
          
          
          
