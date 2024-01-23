@@ -13,19 +13,8 @@
 
 import GUI.FrmPrincipal;
 public class Principal {
-    
     public static void main(String[] args ){
     FrmPrincipal framePrincipal = new FrmPrincipal("AutoLink");
     framePrincipal.setVisible(true);
-
-
-    
-      
-//    
-    
-    
-    
     }
-    
-    
 }
