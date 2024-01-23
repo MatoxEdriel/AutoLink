@@ -9,23 +9,6 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 
-/*
- * Copyright (C) 2014 Delcio Amarillo
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 /**
  * Clase abstracta que implementa la interfaz {@code TableModel} y provee una API 
  * para trabajar con objetos de dominio.
@@ -36,27 +19,17 @@ import javax.swing.table.TableModel;
 public abstract class GenericDomainTableModel<T> implements TableModel {
 
     private EventListenerList listenerList;
-    private List columnIdentifiers;
-    private final List<T> data;
+    //Incluye su listener 
+    private List columnIdentifiers; //De aqui se pone las cabeceras los identificadores 
+    //Trabaja con listas 
+    private final List<T> data; // Es la matriz 
 
-    /**
-     * Crea un nuevo {@code GenericDomainTableModel} vacío, 
-     * sin datos ni identificadores para las columnas
-     */
     public GenericDomainTableModel() {
         data = new ArrayList<>();
         columnIdentifiers = new ArrayList();
         listenerList = new EventListenerList();
     }
-
-	/**
-     * Crea un nuevo {@code GenericDomainTableModel} sin datos
-     * con identificadores para las columnas.
-     *
-     * @param columnIdentifiers Los identificadores para las columnas de la tabla.
-     * @throws IllegalArgumentException Si {@code columnIdentifiers} es {@code null}.
-     */
-    public GenericDomainTableModel(List columnIdentifiers) {
+    public GenericDomainTableModel(List columnIdentifiers) { //Aqui recibe las lista de identificadores  //Es decir las cabeceras
         this();
         if (columnIdentifiers == null) {
                 throw new IllegalArgumentException("El parámetro columnIdentifers no puede ser null.");
@@ -64,11 +37,13 @@ public abstract class GenericDomainTableModel<T> implements TableModel {
                 this.columnIdentifiers.addAll(columnIdentifiers);
         }
     }
-    public GenericDomainTableModel(Object[] columnIdentifiers) {
+    public GenericDomainTableModel(Object[] columnIdentifiers) { //Esto recibe una lista d eobjeto PEROO
+        //
         this();
         if (columnIdentifiers == null) {
                 throw new IllegalArgumentException("El parámetro columnIdentifers no puede ser null.");
         } else {
+            //AQUI LO CONVIERTE EN SU RESPECTIVA LISTA LO USAREMOS PARA ENVIAR OS DATOS Y REPARTIRLOS 
                 this.columnIdentifiers.addAll(Arrays.asList(columnIdentifiers));
         }
     }

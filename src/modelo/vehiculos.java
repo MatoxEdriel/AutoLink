@@ -29,10 +29,6 @@ public class vehiculos implements Serializable {
         this.marca = marca;
         this.modelo = modelo;
     }
-
-    
-    
-    
     @Override
     public String toString() {
         return "vehiculos{" + "numeroChasis=" + numeroChasis + ", matricula=" + matricula +
@@ -40,25 +36,21 @@ public class vehiculos implements Serializable {
     }
     
      private void writeObject(ObjectOutputStream out) throws IOException {
-        out.defaultWriteObject();  // Serializar campos de la clase actual
-
-        // Serializar atributos específicos de vehiculos si es necesario
+        out.defaultWriteObject();  
         out.writeObject(numeroChasis);
         out.writeObject(matricula);
         out.writeObject(marca);
         out.writeObject(modelo);
-        // Serializar otros atributos específicos de vehiculos
+   
     }
 
     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
-        in.defaultReadObject();  // Deserializar campos de la clase actual
-
-        // Deserializar atributos específicos de vehiculos si es necesario
+        in.defaultReadObject();
         numeroChasis = (String) in.readObject();
         matricula = (String) in.readObject();
         marca = (String) in.readObject();
         modelo = (String) in.readObject();
-        // Deserializar otros atributos específicos de vehiculos
+     
     }
     
     

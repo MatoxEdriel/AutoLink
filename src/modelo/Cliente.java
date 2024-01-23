@@ -72,58 +72,22 @@ public class Cliente implements Serializable{
     
     
     
-    //Puedo guardar directamente al atributo
+   
     private void codigo(){
-                //Convierto el string en un array 
-                //recordar usar el this.codigo para no devolver nada xd 
-                //
                 Random numeroRandom = new Random();
-               //revisar los limites y el funcionamiento
                 int numero= numeroRandom.nextInt(901) + 100;
-
-                
                 char[] cedulaVector = this.cedula.toCharArray();
                 char[] nombreVector = this.nombre.toCharArray();
                 char[] apellidoVector = this.apellido.toCharArray();
-                
-                //Aqui seria un for each pero se requiere los ultimos digitos 
-                //mmm como es un array podria usar directamente los ultimos digitos 
-                //aprovechando que son 10 digitos
-                // 0  1  2  3  4  5  6  7  8  9 
-                //necesitaria la posicion [8] [9]
                 char primerDigito = cedulaVector[8];
                 char segundoDigito = cedulaVector[9];
-                
                 char primerLetra = nombreVector[0];
                 char segundaLetra = nombreVector[1];
-                //como si fuera vector [-1]
                 char ultimaLetra = apellidoVector[apellidoVector.length -1 ];
                 char penultimaLetra = apellidoVector[apellidoVector.length -2];
-                
                 String codepart1 = " "+ primerDigito + segundoDigito + primerLetra+segundaLetra + penultimaLetra + ultimaLetra+numero;   
                  this.codigo = codepart1;
     }
-    /*
-    El c´odigo de un cliente ser´a generado en base a los siguientes requisitos:
-a) Tomar los 2 ´ultimos de la c´edula de identidad.
-b) Tomar las dos primeras letras del nombre.
-c) Tomar las dos ´ultimas letras de su segundo apellido, o del primero, si es que s´olo
-tiene uno
-    d) Generar un n´umero aleatorio que empieza desde el n´umero 100 l 1000
-    Code into
-    0943676155
-    Gabriel.
-    Campoverde Jumbo
-    random number
-    Code output
-    55gabo129
-    en teoria crear una funcion que devuelva eso y de ahi hacer llamar esa funcion guardar lo que devuelve
-    en una variable que sera atributo-
-    
-    -Lo correcto seria llamar aqui la funcion ?
-    -Pero primero cargar los datos, seria mas limpio 
-    */
-
     public List<vehiculos> getListaVehiculos() {
         return ListaVehiculos;
     }

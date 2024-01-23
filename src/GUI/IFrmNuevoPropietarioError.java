@@ -1,7 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+/**
+*---------------
+*
+* Creado el 17 de Enero, 2024, 13:00 horas
+*
+* @ Author Gabriel Campoverde, Roberto Mera 
+*
+* @version POO - 2022
+*
+*/
+
 package GUI;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -10,15 +17,12 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 /**
 * (Aviso de try catch )
 *
 * @param parametro1 (descripci´on del parametro1 - sin par´entesis)
 * @param parametro2 (descripci´on del parametro2 - sin par´entesis)
 */
-
-
 public class IFrmNuevoPropietarioError extends JDialog {
     private JPanel panel;
     private JLabel label;
@@ -44,14 +48,5 @@ public class IFrmNuevoPropietarioError extends JDialog {
         panel.add(closeButton, BorderLayout.SOUTH);
         //agregas el panel dentro del contentPane de atras 
         getContentPane().add(panel);
-        
-        
-    
-    
     }
-    
-    
-    
-    
-    
 }

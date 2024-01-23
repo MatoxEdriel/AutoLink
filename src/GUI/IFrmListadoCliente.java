@@ -1,9 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package GUI;
+/**
+*---------------
+*
+* Creado el 17 de Enero, 2024, 13:00 horas
+*
+* @ Author Gabriel Campoverde, Roberto Mera 
+*
+* @version POO - 2022
+*
+*/
 
+package GUI;
 import IO.serializacion;
 import java.awt.BorderLayout;
 import java.util.List;
@@ -15,11 +21,6 @@ import javax.swing.ScrollPaneConstants;
 import modelo.Cliente;
 import modelo.GenericDomainTableModel;
 import modelo.TblCliente;
-
-/**
- *
- * @author Mau
- */
 public class IFrmListadoCliente extends JInternalFrame{
     private JPanel contentPane;
     private JScrollPane spnlTabla;
@@ -27,13 +28,10 @@ public class IFrmListadoCliente extends JInternalFrame{
     private GenericDomainTableModel modeloTabla;
     final Object vCabeceras [] = {"CEDULA", "NOMBRE","APELLIDOS","CODIGO","VEHICULOS"};
     private List<Cliente> lstCliente;
-   
-    
     public IFrmListadoCliente(String titulo){
         super(titulo);
         initComponents();
     }
-    
     private void initComponents(){
         setBounds(90,10,300,300);
         setIconifiable(true);
@@ -45,15 +43,10 @@ public class IFrmListadoCliente extends JInternalFrame{
         spnlTabla = new JScrollPane();
         contentPane.add(spnlTabla, BorderLayout.CENTER);
         spnlTabla.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-    
-        //ahora crearemos la tabla de Clientes
         lstCliente = serializacion.leerListaCliente();
         modeloTabla = new TblCliente(vCabeceras);
         modeloTabla.addRows(lstCliente);
         tblDatosClientes = new JTable(modeloTabla);
         spnlTabla.setViewportView(tblDatosClientes);
-        
-        
     }
-    
 }

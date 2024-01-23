@@ -1,11 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package GUI;
+/**
+*---------------
+*
+* Creado el 17 de Enero, 2024, 13:00 horas
+*
+* @ Author Gabriel Campoverde, Roberto Mera 
+*
+* @version POO - 2022
+*
+*/
 
+package GUI;
+import java.lang.Object; //
 import IO.serializacion;
 import static IO.serializacion.leerLista;
+import static IO.serializacion.leerListaAbsoluta;
 import static IO.serializacion.leerListaCliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,198 +27,115 @@ import modelo.Automovil;
 import modelo.vehiculos;
 import modelo.Moto;
 import modelo.Repositorio.TipoMoto;
-
-
-
-
-
-
-
-/**
- *
- * @author Matox
- */
 public class IFrmRegistroVehiculoListener implements ActionListener{
     IFrmRegistroVehiculo IFrameRegistro;
-
- 
     private List<vehiculos> lstVehiculos;
-    
-
-   
+    private List<Object> lstClienteAbsoluto;
+    private List<Object> visualizarprueba1;
     public IFrmRegistroVehiculoListener(IFrmRegistroVehiculo IFrameRegistro) {
         this.IFrameRegistro = IFrameRegistro;
-      
     }
-    
-   
-    
-    
-    
-    
-    
-    
-    
-    
     @Override
     public void actionPerformed(ActionEvent e) {
-        
         Object obj = e.getSource();
-        //Botones
         if (obj == IFrameRegistro.getBtnNoRegistrar()){
            IFrameRegistro.dispose();
         }
         if (obj == IFrameRegistro.getBtnRegistrarCarro()){
+            
+    
           String numeroChasis = IFrameRegistro.getTxtNumeroChasis().getText();
           String matricula = IFrameRegistro.getTxtMatricula().getText();
           String marca = IFrameRegistro.getTxtMarca().getText();
           String modelo = IFrameRegistro.getTxtModelo().getText();
           numeroAsiento cantidadAsiento = (numeroAsiento)IFrameRegistro.getCmbNumeroAsiento().getSelectedItem();
           numeroPuertas cantidadPuertas = (numeroPuertas)IFrameRegistro.getCmbNumeroPuertas().getSelectedItem();
-          Cambios cambios = (Cambios)IFrameRegistro.getCmbCambios().getSelectedItem();
-          //Quizas llame el mismo cliente 
-          //pero es necesario hacerlo? 
+          Cambios cambios = (Cambios)IFrameRegistro.getCmbCambios().getSelectedItem(); 
           Automovil carro1 = new Automovil(cantidadAsiento,cantidadPuertas,cambios, numeroChasis,matricula,marca, modelo);
-          //uiso la serializacion para guardar en la lista
-          //Puedo pasar esto en una lista al atributo de la clase ? 
           addVehiculos(carro1);
-         // serializacion.guardarListaVehiculos(lstVehiculos);
-          
-          //Cliente ClientePrueba1 = new Cliente();
-          
-          
-          //Aqui uso la lista mmmm es necesario serializarlo? de todos modos ya 
-          //debe estar mmmm 
-          
-         
             serializacion.guardarListaVehiculos(lstVehiculos);
-            
-          
-         //   List<vehiculos> listaVehiculo = serializacion.leerLista();
-           // List<Cliente> listaCliente = serializacion.leerListaCliente();
-            
-       
          List<vehiculos> lista = leerLista();
-List<Cliente> cliente = leerListaCliente();
-
+         List<Cliente> cliente = leerListaCliente();
 if (lista != null) {
     lstVehiculos = lista;
 } else {
     System.out.println("FALLO AQUI");
 }
-
 if (cliente != null) {
-    // No inicialices nuevamente la lista, ya la has obtenido de leerListaCliente()
-    // cliente = leerListaCliente();
+
 } else {
     System.out.println("FALLO AQUI cliente");
 }
-
-//List<Object> clientefinal = new ArrayList<>();
-//clientefinal.addAll(lista);
-//clientefinal.addAll(cliente);
-
-//for (Object elementos : clientefinal) {
-//    
-//    System.out.println("mostrando CLIENTE FINAL " + elementos);
-//}
-
     Cliente primerCliente = cliente.get(0);
     
+    
+ //POSIBLEMENTE ELIMINAR 
     primerCliente.setListaVehiculos(lstVehiculos);
-    
-
+      //PROBANDO PROTOTIPO 1      
             System.out.println("primer cliente + " + primerCliente);
-    
+        addAbsolutos(primerCliente);
+      serializacion.guardarListaAbsoluta(lstClienteAbsoluto);
+      
+      List<Object> visualizarprueba = leerListaAbsoluta();
+        for (Object elemento2 : visualizarprueba) {
+            System.out.println("FUNCIONA" + elemento2);
+            
+            
+            //POSIBLEMENTE ELIMINAR
+        }
+      
+      
+      
            IFrameRegistro.getTxtNumeroChasis().setText("");
            IFrameRegistro.getTxtMatricula().setText("");
            IFrameRegistro.getTxtMarca().setText("");
            IFrameRegistro.getTxtModelo().setText("");
            IFrameRegistro.getTxtNumeroChasis().requestFocus();
-           
-           //IFrameRegistro.
-      
-           //
-      
-    
-         
-            
-          
-            
-            
-            
-            
-          
-          
-          
         }
-        
-       
         if(obj == IFrameRegistro.getBtnRegistrarMoto()){
           String numeroChasisM = IFrameRegistro.getTxtNumeroChasis().getText();
           String matriculaM = IFrameRegistro.getTxtMatricula().getText();
           String marcaM = IFrameRegistro.getTxtMarca().getText();
           String modeloM = IFrameRegistro.getTxtModelo().getText();
           String cilindrajeM = IFrameRegistro.getTxtCilindraje().getText();
-          
           TipoMoto tipoMoto = (TipoMoto)IFrameRegistro.getCmbTipoMoto().getSelectedItem();
           Moto moto1 = new Moto(cilindrajeM,tipoMoto,numeroChasisM,matriculaM,marcaM,modeloM);
-          
           addVehiculos(moto1);
-          
-          
           serializacion.guardarListaVehiculos(lstVehiculos);
-          
-        
            List<vehiculos> lista = leerLista();
            List<Cliente> cliente = leerListaCliente();
-           
          Cliente SegundoCliente = cliente.get(0);
-    
           SegundoCliente.setListaVehiculos(lstVehiculos);
-         System.out.println("primer cliente + " + SegundoCliente);
-                  
-                 
+         System.out.println("primer cliente + " + SegundoCliente);   
         nuevo();
-        
-        
         }
-        
-     
-        
-        //
-        
-        
-        
-        
     }
        private void addVehiculos(vehiculos v){
-            if(lstVehiculos == null){
-            
+            if(lstVehiculos == null){   
                 lstVehiculos = new ArrayList<>();
-            }
-            
+            }   
             lstVehiculos.add(v);
-        
-        
         }
-       
+       //PROTOTIPO 1 PRUEBA FALLIDA: 1 
+       private void addAbsolutos(Object o){
+     
+            if(lstClienteAbsoluto == null){   
+                lstClienteAbsoluto = new ArrayList<>();
+            }   
+            lstClienteAbsoluto.add(o);
+        }
+          
+          
+          
        public List<vehiculos> getListaVehiculos(){
            return lstVehiculos;
        }
-       //PROTOTIPO 3
-    
           public void nuevo(){
       IFrameRegistro.getTxtNumeroChasis().setText("");
       IFrameRegistro.getTxtMatricula().setText("");
       IFrameRegistro.getTxtMarca().setText("");
       IFrameRegistro.getTxtModelo().setText("");
-      
       IFrameRegistro.getTxtCilindraje().setText("");
-      
       IFrameRegistro.getTxtNumeroChasis().requestFocus();
-      }
-       //BORRAR DATOS DEPUES DE INGRESAR 
-       
-       
+      } 
 }

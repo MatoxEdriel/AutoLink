@@ -84,6 +84,34 @@ public class serializacion{
      
      }
      
+     //SOLUCION 1 PROTOTIPO PRUEBA FALLIDAS: 
+       public static void guardarListaAbsoluta(List<Object> lstClientesFinales){
+        try{
+        ObjectOutputStream objS = new ObjectOutputStream(new FileOutputStream("./src/IO/DatosAbsoluto.poo"));
+        objS.writeObject(lstClientesFinales);
+        objS.close();
+        }catch(IOException e) {e.printStackTrace();}
+    }
+    
+    
+      public static List<Object> leerListaAbsoluta(){
+         List<Object> lstClienteFinales = null;
+         
+          try{
+        ObjectInputStream in= new ObjectInputStream(new FileInputStream("./src/IO/DatosAbsoluto.poo"));
+        lstClienteFinales = (List<Object>)in.readObject();
+        in.close();
+            
+        }catch(IOException e) {e.printStackTrace();}
+        catch(ClassNotFoundException e){e.printStackTrace();}
+          
+          
+          return lstClienteFinales;
+       
+     
+     
+     }
+     
      
     
     

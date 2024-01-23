@@ -1,12 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package GUI;
+/**
+*---------------
+*
+* Creado el 17 de Enero, 2024, 13:00 horas
+*
+* @ Author Gabriel Campoverde, Roberto Mera 
+*
+* @version POO - 2022
+*
+*/
 
+package GUI;
 import IO.serializacion;
-import static IO.serializacion.leerLista;
-import static IO.serializacion.leerListaCliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -16,13 +20,8 @@ import modelo.DireccionDomicilio;
 import modelo.DireccionLaboral;
 import modelo.Repositorio.Ciudades;
 import modelo.vehiculos;
-import javax.swing.JDialog;
-import javax.swing.SwingUtilities;
 
-/**
- *
- * @author Matox
- */
+import javax.swing.SwingUtilities;
 public class IFrmNuevoPropietarioListener implements ActionListener {
     IFrmNuevoPropietario Ifrm;
     private List<Cliente> lstClientes;
@@ -53,7 +52,6 @@ public class IFrmNuevoPropietarioListener implements ActionListener {
            DireccionDomicilio direccionCasa = new DireccionDomicilio(domicilioCiudad,domicilioCalle,domicilioNumero);
            DireccionLaboral direccionTrabajo = new DireccionLaboral(CiudadTrabajo, CalleTrabajo, numeroTrabajo);      
            IFrmRegistroVehiculo carro = new IFrmRegistroVehiculo("Registro de Vehiculo");
-           
            carro.setVisible(true);
            Ifrm.getDesktopPane().add(carro);
            Ifrm.setVisible(false);
@@ -79,8 +77,6 @@ public class IFrmNuevoPropietarioListener implements ActionListener {
 * @param parametro1 (descripci´on del parametro1 - sin par´entesis)
 * @param parametro2 (descripci´on del parametro2 - sin par´entesis)
 */
-
-    
       public void addClientes(Cliente cliente1){
         if(lstClientes == null){
             lstClientes = new ArrayList<>();

@@ -13,9 +13,16 @@ import modelo.Repositorio.numeroAsiento;
 import modelo.Repositorio.numeroPuertas;
 
 /**
- *
- * @author Matox
- */
+*---------------
+*
+* Creado el 17 de Enero, 2024, 13:00 horas
+*
+* @ Author Gabriel Campoverde, Roberto Mera 
+*
+* @version POO - 2022
+*
+*/
+
 public class Automovil extends vehiculos implements Serializable{
     private transient String transientField; 
     private numeroAsiento numeroAsientos;

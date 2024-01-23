@@ -3,21 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package modelo;
-
 import java.io.Serializable;
 import modelo.Repositorio.Ciudades;
-
 /**
- *
- * @author Matox
- */
+*---------------
+*
+* Creado el 17 de Enero, 2024, 13:00 horas
+*
+* @ Author Gabriel Campoverde, Roberto Mera 
+*
+* @version POO - 2022
+*
+*/
 public class DireccionDomicilio implements Serializable {
     private Ciudades ciudad;
     private String calle;
     private String numero;
     public DireccionDomicilio(){
-    
-    
     }
     public DireccionDomicilio(Ciudades ciudad, String calle, String numero) {
         this.ciudad = ciudad;
@@ -48,13 +50,6 @@ public class DireccionDomicilio implements Serializable {
     public void setNumero(String numero) {
         this.numero = numero;
     }
-
-    
-    
-    
-    
-    
-    
     @Override
     public String toString() {
         return "DireccionDomicilio{" + "ciudad=" + ciudad + ", calle=" + calle + ", numero=" + numero + '}';

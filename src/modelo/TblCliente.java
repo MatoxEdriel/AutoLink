@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package modelo;
-import modelo.vehiculos;
 import java.util.List;
 
 /**
@@ -11,7 +10,7 @@ import java.util.List;
  * @author Mau
  */
 public class TblCliente extends GenericDomainTableModel<Cliente>{
-
+    //Se implementa las cabeceras 
     public TblCliente(Object [] vCabeceras){
         super(vCabeceras);
     }
@@ -24,6 +23,7 @@ public class TblCliente extends GenericDomainTableModel<Cliente>{
             case 2 : return String.class;
             case 3 : return String.class;
             case 4 : return vehiculos.class;
+            
         }
         return null;
         
