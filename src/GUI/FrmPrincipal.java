@@ -13,13 +13,15 @@ package GUI;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import java.awt.Graphics;
+import java.awt.Color;
+
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JDesktopPane;
+
 
 public class FrmPrincipal extends JFrame {
     private JPanel contentPane;
@@ -31,12 +33,14 @@ public class FrmPrincipal extends JFrame {
     private Image imagen;
     //DesktopPane
     private JDesktopPane desktopPane;
-    
+
+
 
     
-    
-    
+   
+
     public FrmPrincipal(){    
+     
         initComponents();
         addListeners();
     }
@@ -45,6 +49,8 @@ public class FrmPrincipal extends JFrame {
         initComponents();
         addListeners();
     }
+    
+    
     public void addListeners(){
     FrmPrincipalListener listener = new FrmPrincipalListener(this);
     mniRegistrar.addActionListener(listener);
@@ -58,12 +64,15 @@ public class FrmPrincipal extends JFrame {
     //borrar prueba 1 
     
     public void initComponents(){
+   
     setSize(600,700);
     setLocationRelativeTo(null);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     contentPane = new JPanel(new BorderLayout());
     setContentPane(contentPane);
     //PRUEBA 1
+  
+    
     
     
 
@@ -71,6 +80,7 @@ public class FrmPrincipal extends JFrame {
     //Ingreso de desktop Pane
     desktopPane = new JDesktopPane();
         contentPane.add(desktopPane);
+ 
     //Barra de menu
     barra = new JMenuBar();
         setJMenuBar(barra);
@@ -82,10 +92,7 @@ public class FrmPrincipal extends JFrame {
         mnArchivo.add(mniRegistrar);
         mnArchivo.add(mniRevisar);
         mnArchivo.add(mniSalir);
-        
-        
-        
-        
+  
     
     }
     
@@ -119,9 +126,7 @@ public class FrmPrincipal extends JFrame {
         return mniRevisar;
     }
 
-    
-    
-
+   
 
 
     

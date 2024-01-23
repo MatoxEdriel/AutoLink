@@ -17,6 +17,11 @@ import javax.swing.JPanel;
  * @author Matox
  */
 public class IFrmNuevoPropietarioError extends JDialog {
+    private JPanel panel;
+    private JLabel label;
+    private JButton closeButton;
+    
+    
     
     public IFrmNuevoPropietarioError(String errorMessage){
         setTitle("OJITO ");
@@ -24,18 +29,20 @@ public class IFrmNuevoPropietarioError extends JDialog {
         setResizable(false);
         setLocationRelativeTo(null);
         
-        JPanel panel = new JPanel(new BorderLayout());
-        JLabel label = new JLabel(errorMessage);
+        panel = new JPanel(new BorderLayout());
+        label = new JLabel("Hay un error xd ");
+        
         panel.add(label, BorderLayout.CENTER);
 
-        JButton closeButton = new JButton("Cerrar");
+        closeButton = new JButton("Cerrar");
+        
         closeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose(); // Cierra el diálogo al hacer clic en el botón "Cerrar"
             }
         });
         panel.add(closeButton, BorderLayout.SOUTH);
-
+        //agregas el panel dentro del contentPane de atras 
         getContentPane().add(panel);
         
         

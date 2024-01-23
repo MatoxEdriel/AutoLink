@@ -5,7 +5,9 @@
 package GUI;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
+import javax.swing.ImageIcon;
 //import java.awt.Image;
 //import javax.swing.Icon;
 //import javax.swing.ImageIcon;
@@ -30,7 +32,8 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
       private JPanel contentPane;
       private JPanel pnlTop;
   
-      
+      private Color paleta; 
+      private Color paleta2;
       private JPanel pnlSur;
       private JPanel pnlCentro;
       private JPanel pnlCarro;
@@ -87,6 +90,14 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
       private JLabel lblSpace3;
       
       
+      private JLabel lblIconCarro;
+      private JLabel lblIconMoto;
+      private ImageIcon iconoCarro;
+      private ImageIcon iconoMoto;
+      private JPanel pnlIconoCarro;
+      private JPanel pnlIconoMoto;
+
+      
       
  
       
@@ -126,8 +137,12 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
       }
       
      public void initComponents(){
-        setBounds(160, 50,270, 500);
+        setBounds(160, 30,270, 600);
         contentPane = new JPanel(new BorderLayout());
+        paleta = new Color(0xFFFBEF);
+        paleta2 = new Color(0x4F5FF4);
+        
+        
         setContentPane(contentPane);
           //Activar capacidad de modificar tama;o con mouse
         setResizable(true);
@@ -138,13 +153,36 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
         //capacidad de ventana para maximizar
         setMaximizable(true); 
         //Revisar gestion de desing 
+        
+        iconoCarro = new ImageIcon("src/IO/carro2.jpg");
+        iconoMoto = new ImageIcon("src/IO/moto2.jpg");
+        
+        
+        
+        lblIconCarro = new JLabel(iconoCarro);
+        lblIconMoto = new JLabel(iconoMoto);
+             pnlIconoCarro = new JPanel();
+             pnlIconoCarro.setBackground(paleta);
+            
+             
+             pnlIconoCarro.add(lblIconCarro);
+             
+             pnlIconoMoto = new JPanel();
+             pnlIconoMoto.setBackground(paleta);
+            
+             pnlIconoMoto.add(lblIconMoto);
+             
+             //MODIFICAR
         pnlTop = new JPanel(new GridLayout(5,1));
+            pnlTop.setBackground(paleta);
               //   pnllblMoto = new JPanel(new BorderLayout());
                 // pnllblCarro = new JPanel(new BorderLayout());
         pnlSur = new JPanel();
+            pnlSur.setBackground(paleta2);
         pnlCentro = new JPanel(new GridLayout(1,2));
             pnlCarro = new JPanel(new GridLayout(6,1));
             pnlMoto = new JPanel(new GridLayout(6,1));
+            pnlCentro.setBackground(paleta);
         //Carro 
         lblCarro = new JLabel("Carro");
         lblNumeroChasis = new JLabel(" Numero de chasis "); 
@@ -163,10 +201,13 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
         contentPane.add(pnlSur, BorderLayout.SOUTH);
         contentPane.add(pnlCentro,BorderLayout.CENTER);
          pnlChasis = new JPanel(new GridLayout(1,2));
+         pnlChasis.setBackground(paleta);
          pnllblVehiculo = new JPanel();
+         pnllblVehiculo.setBackground(paleta);
          pnlTop.add(pnllblVehiculo);
          lblVehiculo = new JLabel("Datos de vehiculo");
          pnllblVehiculo.add(lblVehiculo);
+         pnllblVehiculo.setBackground(paleta);
          
         pnlTop.add(pnlChasis);
                  txtNumeroChasis = new JTextField(10);
@@ -179,6 +220,7 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
 //                    pnllblCarro.add(lblCarro);
 //                    pnllblMoto.add(lblMoto);
         pnlMatricula = new JPanel(new GridLayout(1,2));
+        pnlMatricula.setBackground(paleta);
         pnlTop.add(pnlMatricula);
             pnlMatricula.add(lblMatricula);
                 txtMatricula = new JTextField(10);
@@ -186,12 +228,14 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
            
 //           
                 pnlMarca = new JPanel(new GridLayout(1,2));
+                pnlMarca.setBackground(paleta);
         pnlTop.add(pnlMarca);
                 txtMarca = new JTextField(10);
                 pnlMarca.add(lblMarca);
                 pnlMarca.add(txtMarca);
                 
                 pnlModelo = new JPanel(new GridLayout(1,2));
+                pnlModelo.setBackground(paleta);
         pnlTop.add(pnlModelo);
                 txtModelo = new JTextField(10);
                 pnlModelo.add(lblModelo);
@@ -203,15 +247,28 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
                 
             pnlCentro.add(pnlCarro);
                  pnlNumeroAsiento= new JPanel();
-                 pnlCarro.add(lblCarro);
+                 pnlCarro.add(pnlIconoCarro);
+                 /*
+                   
+             pnlIconoCarro.add(lblIconCarro);
+             
+             pnlIconoMoto = new JPanel();
+            
+             pnlIconoMoto.add(lblIconMoto);
+             
+                 
+                 */
                  pnlCarro.add(pnlNumeroAsiento);
+                 pnlCarro.setBackground(paleta);
                  lblNumeroAsiento = new JLabel("Numero de asiento");
                  pnlNumeroAsiento.add(lblNumeroAsiento);
+                 pnlNumeroAsiento.setBackground(paleta);
                  
                          cmbNumeroAsiento = new JComboBox<>(numeroAsiento.values());
                                   pnlNumeroAsiento.add(cmbNumeroAsiento);
                  
                  pnlNumeroPuertas = new JPanel();
+                 pnlNumeroPuertas.setBackground(paleta);
                  pnlCarro.add(pnlNumeroPuertas);
                  lblNumeroPuertas = new JLabel("Numero de puertas");
                  pnlNumeroPuertas.add(lblNumeroPuertas);
@@ -219,6 +276,7 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
                  pnlNumeroPuertas.add(cmbNumeroPuertas);
                  //finish 
                  pnlCambios = new JPanel();
+                 pnlCambios.setBackground(paleta);
                  pnlCarro.add(pnlCambios);
                  lblCambios = new JLabel("Cambios");
                  pnlCambios.add(lblCambios);
@@ -228,6 +286,7 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
                  lblSpace3 = new JLabel("");
                  
                  pnlCarro.add(lblSpace3);
+                 lblSpace3.setBackground(paleta);
                  
                  
                  
@@ -239,15 +298,18 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
             pnlCentro.add(pnlMoto);
                 
             
-                 pnlMoto.add(lblMoto);
+                 pnlMoto.add(pnlIconoMoto);
+                 pnlMoto.setBackground(paleta);
                  pnlCilindraje = new JPanel();
                  pnlMoto.add(pnlCilindraje);
                  pnlCilindraje.add(lblCilindraje);
+                 pnlCilindraje.setBackground(paleta);
                  txtCilindraje = new JTextField(10);
                  pnlCilindraje.add(txtCilindraje);
                  
                  //Tipo
                    pnlTipoMoto = new JPanel();
+                   pnlTipoMoto.setBackground(paleta);
                  pnlMoto.add(pnlTipoMoto);
                  pnlTipoMoto.add(lblTipo);
                        cmbTipoMoto = new JComboBox<>(TipoMoto.values());
@@ -256,7 +318,9 @@ public class IFrmRegistroVehiculo extends JInternalFrame{
                  lblSpace = new JLabel("");
                  lblSpace2 = new JLabel("");
                  pnlMoto.add(lblSpace);
+                 lblSpace.setBackground(paleta);
                  pnlMoto.add(lblSpace2);
+                 lblSpace2.setBackground(paleta);
                  pnlMoto.add(btnRegistrarMoto);
             
         pnlSur.add(btnNoRegistrar);

@@ -122,7 +122,16 @@ if (cliente != null) {
 
             System.out.println("primer cliente + " + primerCliente);
     
-    
+           IFrameRegistro.getTxtNumeroChasis().setText("");
+           IFrameRegistro.getTxtMatricula().setText("");
+           IFrameRegistro.getTxtMarca().setText("");
+           IFrameRegistro.getTxtModelo().setText("");
+           IFrameRegistro.getTxtNumeroChasis().requestFocus();
+           
+           //IFrameRegistro.
+      
+           //
+      
     
          
             
@@ -162,7 +171,7 @@ if (cliente != null) {
          System.out.println("primer cliente + " + SegundoCliente);
                   
                  
-        
+        nuevo();
         
         
         }
