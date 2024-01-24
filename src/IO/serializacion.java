@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 import modelo.Cliente;
 import modelo.vehiculos;
@@ -22,6 +23,16 @@ import modelo.vehiculos;
 public class serializacion{
     //guardar Lista
     public static void guardarLista(List<Cliente> lstClientes){
+        
+             List<Cliente> clientesRegistrados = leerListaCliente();
+        
+        // Si no hay clientes registrados, crea una nueva lista
+        if (clientesRegistrados == null) {
+            clientesRegistrados = new ArrayList<>();
+        }
+
+        // Agregar los nuevos clientes a la lista existente
+        clientesRegistrados.addAll(lstClientes);
         try{
         ObjectOutputStream objS = new ObjectOutputStream(new FileOutputStream("./src/IO/Datos.poo"));
         objS.writeObject(lstClientes);
@@ -85,15 +96,25 @@ public class serializacion{
      }
      
      //SOLUCION 1 PROTOTIPO PRUEBA FALLIDAS: 
-       public static void guardarListaAbsoluta(List<Object> lstClientesFinales){
-        try{
-        ObjectOutputStream objS = new ObjectOutputStream(new FileOutputStream("./src/IO/DatosAbsoluto.poo"));
-        objS.writeObject(lstClientesFinales);
-        objS.close();
-          
-        }catch(IOException e) {e.printStackTrace();}
+    public static void guardarListaAbsoluta(List<Object> lstClientesFinales) {
+    List<Object> clientesRegistrados = leerListaAbsoluta();
+
+    // Si no hay objetos registrados, crea una nueva lista
+    if (clientesRegistrados == null) {
+        clientesRegistrados = new ArrayList<>();
     }
-    
+
+    // Agregar los nuevos objetos a la lista existente
+    clientesRegistrados.addAll(lstClientesFinales);
+
+    try {
+        ObjectOutputStream objS = new ObjectOutputStream(new FileOutputStream("./src/IO/DatosAbsoluto.poo"));
+        objS.writeObject(clientesRegistrados);
+        objS.close();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
     
       public static List<Object> leerListaAbsoluta(){
          List<Object> lstClienteFinales = null;
@@ -105,7 +126,10 @@ public class serializacion{
             
         }catch(IOException e) {e.printStackTrace();}
         catch(ClassNotFoundException e){e.printStackTrace();}
-          
+       if (lstClienteFinales == null) {
+        lstClienteFinales = new ArrayList<>();
+       }
+
           
           return lstClienteFinales;
        

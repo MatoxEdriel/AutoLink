@@ -26,7 +26,7 @@ public class IFrmListadoCliente extends JInternalFrame{
     private JScrollPane spnlTabla;
     private JTable tblDatosClientes;
     private GenericDomainTableModel modeloTabla;
-    final Object vCabeceras [] = {"CLIENTE", "CODIGO","DATOS PESONALES","DATOS VEHICULAR"};
+    final Object vCabeceras [] = {"CLIENTE", "CODIGO","DATOS PESONALES","DATOS VEHICULAR","a","a","a","a"};
  
     private List<Cliente> lstCliente;
     public IFrmListadoCliente(String titulo){
