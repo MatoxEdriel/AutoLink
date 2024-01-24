@@ -37,10 +37,17 @@ public class PrototipoTabla implements TableModel{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
+    //BOTON DEBE SER INTERFAZ  
+    
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
+    
+    
+    
+    
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {

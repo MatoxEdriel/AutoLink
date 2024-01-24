@@ -56,6 +56,18 @@ public class Moto extends vehiculos implements Serializable {
         modelo = (String) in.readObject();
         // Deserializar otros atributos específicos de vehiculos
     }
+
+    public String getTransientField() {
+        return transientField;
+    }
+
+    public String getCilindraje() {
+        return cilindraje;
+    }
+
+    public TipoMoto getTipo() {
+        return tipo;
+    }
     
     
     

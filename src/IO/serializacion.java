@@ -90,6 +90,7 @@ public class serializacion{
         ObjectOutputStream objS = new ObjectOutputStream(new FileOutputStream("./src/IO/DatosAbsoluto.poo"));
         objS.writeObject(lstClientesFinales);
         objS.close();
+          
         }catch(IOException e) {e.printStackTrace();}
     }
     

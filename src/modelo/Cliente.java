@@ -25,14 +25,8 @@ public class Cliente implements Serializable{
     private String cedula;
     private String codigo;
     private List<vehiculos> ListaVehiculos;
-    
-    
-    
     private DireccionDomicilio oDireccionDomicilio;
     private DireccionLaboral oDireccionLaboral;
-    
-    
-    
     //private DireccionDomicilio
     //private DireccionTrabajo
     

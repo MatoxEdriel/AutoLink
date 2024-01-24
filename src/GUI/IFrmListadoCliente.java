@@ -26,7 +26,8 @@ public class IFrmListadoCliente extends JInternalFrame{
     private JScrollPane spnlTabla;
     private JTable tblDatosClientes;
     private GenericDomainTableModel modeloTabla;
-    final Object vCabeceras [] = {"CEDULA", "NOMBRE","APELLIDOS","CODIGO","VEHICULOS"};
+    final Object vCabeceras [] = {"CLIENTE", "CODIGO","DATOS PESONALES","DATOS VEHICULAR"};
+ 
     private List<Cliente> lstCliente;
     public IFrmListadoCliente(String titulo){
         super(titulo);
@@ -43,6 +44,8 @@ public class IFrmListadoCliente extends JInternalFrame{
         spnlTabla = new JScrollPane();
         contentPane.add(spnlTabla, BorderLayout.CENTER);
         spnlTabla.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        
+        
         lstCliente = serializacion.leerListaCliente();
         modeloTabla = new TblCliente(vCabeceras);
         modeloTabla.addRows(lstCliente);

@@ -65,5 +65,26 @@ public class Automovil extends vehiculos implements Serializable{
         modelo = (String) in.readObject();
         // Deserializar otros atributos específicos de vehiculos
     }
+
+    public String getTransientField() {
+        return transientField;
+    }
+
+    public numeroAsiento getNumeroAsientos() {
+        return numeroAsientos;
+    }
+
+    public numeroPuertas getNunmeroPuertas() {
+        return nunmeroPuertas;
+    }
+
+    public Cambios getTipoCambio() {
+        return tipoCambio;
+    }
+    
+    
+    
+    
+    
     
 }

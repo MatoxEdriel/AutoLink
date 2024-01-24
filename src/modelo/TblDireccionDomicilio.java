@@ -47,4 +47,6 @@ public class TblDireccionDomicilio extends GenericDomainTableModel{
         
     }
     
+    
+    
 }

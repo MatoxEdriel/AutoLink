@@ -1,63 +1,131 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
-import java.util.List;
 
-/**
- *
- * @author Mau
- */
-public class TblCliente extends GenericDomainTableModel<Cliente>{
-    //Se implementa las cabeceras 
-    public TblCliente(Object [] vCabeceras){
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+import javax.swing.JButton;
+
+public class TblCliente extends GenericDomainTableModel<Cliente> {
+    private JButton btnMostrarDatosPersonales;
+    private JButton btnMostrarDatosVehiculos;
+
+    public TblCliente(Object[] vCabeceras) {
         super(vCabeceras);
     }
-    
+
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-        switch(columnIndex){
-            case 0 : return String.class;
-            case 1 : return String.class;
-            case 2 : return String.class;
-            case 3 : return String.class;
-            case 4 : return vehiculos.class;
-            
+        switch (columnIndex) {
+            case 0: return String.class;
+            case 1:
+                return String.class;
+            case 2:
+                return JButton.class; // Botón para mostrar datos personales
+            case 3:
+                return JButton.class; // Botón para mostrar datos vehiculares
         }
         return null;
-        
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Cliente cliente = (Cliente)getDomainObject(rowIndex);
-        switch(columnIndex){
-            case 0: return cliente.getNombre();
-            case 1: return cliente.getApellido();
-            case 2: return cliente.getCedula();
-            case 3: return cliente.getCodigo();
-            case 4: return cliente.getListaVehiculos();
-            
+        Object obj  = getDomainObject(rowIndex);
+        Cliente cliente = getDomainObject(rowIndex);
+        switch (columnIndex) {
+            case 0:
+                return cliente.getNombre();
+            case 1:
+                return cliente.getCodigo();
+            case 2:
+                return createButton("Datos Personales", cliente);
+            case 3:
+                return createButton("Datos Vehiculares", cliente);
         }
         return null;
-        
     }
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+        // Puedes manejar la acción del botón aquí si es necesario
+        // No necesitas modificar el valor de la celda, ya que es un botón
         Cliente cliente = (Cliente)getDomainObject(rowIndex);
+        Object obj = getDomainObject(rowIndex);
         switch(columnIndex){
-            case 0: cliente.setNombre((String)aValue);break;
-            case 1: cliente.setApellido((String)aValue);break;
-            case 2: cliente.setCedula((String)aValue);break;
-            case 3: cliente.setCodigo((String)aValue);break;
-            case 4: cliente.setListaVehiculos((List<vehiculos>)(vehiculos)aValue);
+            case 0: 
+                    setValueAt("Cliente " + (rowIndex + 1), rowIndex, columnIndex);
+            break;
+                  case 1: cliente.setCodigo((String)aValue);
+                System.out.println("Código del cliente: " + cliente.getCodigo());
+             break;
+            case 2: 
+                if(obj instanceof Cliente){
+                       ClienteDetailsDialog detalles = new ClienteDetailsDialog(cliente);
+                       detalles.setSize(500,500);
+                       detalles.setLocationRelativeTo(null);
+                      detalles.setVisible(true);
+                }
+                
+              
+//                cliente.setNombre((String)aValue);;
+//                    cliente.setApellido((String)aValue);
+//                    cliente.setCedula((String)aValue);
+//                    cliente.setoDireccionDomicilio()
+//                    cliente.setoDireccionLaboral(oDireccionLaboral);
+//                 
+                break;
+            case 3:
+                if(obj instanceof vehiculos){
+                        VehiculoDetailsDialog detalles2 = new VehiculoDetailsDialog((vehiculos) obj);
+                      detalles2.setSize(500,500);
+                      detalles2.setLocationRelativeTo(null);
+                      detalles2.setVisible(true);   
+                
+                
+                
+                }
+                
+                
+                //probando
+                 break;
+                
+        
+        
+        
+        
         }
         
-        
-        notifyTableCellUpdated(rowIndex, columnIndex);
+         notifyTableCellUpdated(rowIndex, columnIndex);
         
     }
+    //tendria qeu cambiar esto mmmm
+    //Hacer interfaz?? es que son los mismo botones  PERO
+    private JButton createButton(String text, Object obj) {
+        JButton button = new JButton(text);
+        button.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(obj instanceof Cliente){
+                Cliente cliente = (Cliente) obj;
+            }
+            else if(obj instanceof vehiculos){
+                vehiculos vehiculo = (vehiculos) obj;
+            
+            
+            }
+            // Aquí puedes manejar el evento de clic en el botón
+            // Puedes acceder al objeto Cliente asociado a la fila
+            // (pasado como parámetro en createButton)
+          
+            // Realiza las acciones que desees al hacer clic en el botón
+        }
+    }); 
+
+
+// Personaliza el botón según tus necesidades
+        return button;
+    } 
+    
+    
+    
     
 }

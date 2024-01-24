@@ -52,6 +52,22 @@ public class vehiculos implements Serializable {
         modelo = (String) in.readObject();
      
     }
+
+    public String getNumeroChasis() {
+        return numeroChasis;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
     
     
     
