@@ -106,7 +106,11 @@ if (cliente != null) {
            List<Cliente> cliente = leerListaCliente();
          Cliente SegundoCliente = cliente.get(0);
           SegundoCliente.setListaVehiculos(lstVehiculos);
-         System.out.println("primer cliente + " + SegundoCliente);   
+         
+          
+          System.out.println("primer cliente + " + SegundoCliente);   
+          
+          
         nuevo();
         }
     }

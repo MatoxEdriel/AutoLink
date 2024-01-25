@@ -22,25 +22,13 @@ import modelo.vehiculos;
  */
 public class serializacion{
     //guardar Lista
-    public static void guardarLista(List<Cliente> lstClientes){
-        
-             List<Cliente> clientesRegistrados = leerListaCliente();
-        
-        // Si no hay clientes registrados, crea una nueva lista
-        if (clientesRegistrados == null) {
-            clientesRegistrados = new ArrayList<>();
-        }
-
-        // Agregar los nuevos clientes a la lista existente
-        clientesRegistrados.addAll(lstClientes);
-        try{
-        ObjectOutputStream objS = new ObjectOutputStream(new FileOutputStream("./src/IO/Datos.poo"));
+ public static void guardarLista(List<Cliente> lstClientes) {
+    try (ObjectOutputStream objS = new ObjectOutputStream(new FileOutputStream("./src/IO/Datos.poo", true))) {
         objS.writeObject(lstClientes);
-        objS.close();
-        }catch(IOException e) {e.printStackTrace();}
-       
-    
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+}
     
     
       public static List<Cliente> leerListaCliente(){
@@ -99,13 +87,7 @@ public class serializacion{
     public static void guardarListaAbsoluta(List<Object> lstClientesFinales) {
     List<Object> clientesRegistrados = leerListaAbsoluta();
 
-    // Si no hay objetos registrados, crea una nueva lista
-    if (clientesRegistrados == null) {
-        clientesRegistrados = new ArrayList<>();
-    }
 
-    // Agregar los nuevos objetos a la lista existente
-    clientesRegistrados.addAll(lstClientesFinales);
 
     try {
         ObjectOutputStream objS = new ObjectOutputStream(new FileOutputStream("./src/IO/DatosAbsoluto.poo"));
